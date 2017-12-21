@@ -1,0 +1,51 @@
+{
+    "name": "zephir",
+    "version": "0.3.0",
+    "displayName": "Zephir for VSCode",
+    "title": "Zephir for VSCode",
+    "description": "Zephir Language extension for VSCode",
+    "author": "Zephir Team",
+    "license": "MIT",
+    "publisher": "zephir-lang",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zephir-lang/zephir-vscode.git"
+      },
+    "engines": {
+        "vscode": "^1.15.0",
+        "atom": ">0.50.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "homepage": "https://github.com/zephir-lang/zephir-vscode",
+    "bugs": {
+        "url": "https://github.com/zephir-lang/zephir-vscode/issues"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {},
+    "activationEvents": [],
+    "contributes": {
+        "languages": [
+            {
+                "id": "zephir",
+                "aliases": [
+                    "Zephir",
+                    "zephir"
+                ],
+                "extensions": [
+                    ".zep"
+                ],
+                "configuration": "./zephir.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "zephir",
+                "scopeName": "source.php.zephir",
+                "path": "./syntaxes/Zephir.tmLanguage"
+            }
+        ]
+    }
+}

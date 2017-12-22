@@ -1,0 +1,6 @@
+.gitattributes
+.gitignore
+.npmignore
+
+.vscode/**
+wip/**

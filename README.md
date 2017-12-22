@@ -9,7 +9,7 @@ Zephir Language support for VSCode.
 * Open the Command Pallete <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
   (or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>)
 * Type "Install Extensions" and hit <kbd>Enter</kbd>
-* Find "Zephir" and hit <kbd>Enter</kbd>
+* Find "Zephir for VSCode" and hit <kbd>Enter</kbd>
 
 Once the extension is installed, reload VSCode.
 

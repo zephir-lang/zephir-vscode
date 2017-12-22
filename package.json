@@ -19,6 +19,13 @@
     "categories": [
         "Languages"
     ],
+    "keywords": [
+        "language",
+        "zephir",
+        "highlight",
+        "syntax",
+        "snippets"
+    ],
     "homepage": "https://github.com/zephir-lang/zephir-vscode",
     "bugs": {
         "url": "https://github.com/zephir-lang/zephir-vscode/issues"

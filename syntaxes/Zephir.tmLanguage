@@ -2,20 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>name</key>
+	<string>Zephir</string>
+	<key>version</key>
+	<string>0.3.4</string>
 	<key>comment</key>
-	<string></string>
+	<string>Zephir Language support for VSCode</string>
 	<key>fileTypes</key>
 	<array>
 		<string>zep</string>
 	</array>
+	<key>scopeName</key>
+	<string>source.php.zephir</string>
+	<key>uuid</key>
+	<string>D757833E-2573-11E3-9CA0-50E7973F7489</string>
 	<key>foldingStartMarker</key>
 	<string>^.*\bfunction\s*(\w+\s*)?\([^\)]*\)(\s*\{[^\}]*)?\s*$</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*\}</string>
 	<key>keyEquivalent</key>
 	<string>^~J</string>
-	<key>name</key>
-	<string>Zephir</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -569,9 +575,5 @@
 			<string>meta.brace.square.zephir</string>
 		</dict>
 	</array>
-	<key>scopeName</key>
-	<string>source.php.zephir</string>
-	<key>uuid</key>
-	<string>D757833E-2573-11E3-9CA0-50E7973F7489</string>
 </dict>
 </plist>

@@ -1,9 +1,9 @@
 {
     "name": "zephir",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "displayName": "Zephir for VSCode",
     "title": "Zephir for VSCode",
-    "description": "Zephir Language syntax highlight for VSCode",
+    "description": "Zephir Language support for VSCode",
     "author": "Zephir Team",
     "license": "MIT",
     "publisher": "zephir-lang",
@@ -38,7 +38,7 @@
                 "extensions": [
                     ".zep"
                 ],
-                "configuration": "./zephir.configuration.json"
+                "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [

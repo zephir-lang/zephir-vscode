@@ -1,6 +1,6 @@
 # Zephir for VSCode
 
-Zephir Language extension for VSCode.
+Zephir Language syntax highlight for VSCode.
 
 ## License
 

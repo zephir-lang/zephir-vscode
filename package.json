@@ -1,12 +1,14 @@
 {
     "name": "zephir",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "displayName": "Zephir for VSCode",
     "title": "Zephir for VSCode",
-    "description": "Zephir Language extension for VSCode",
+    "description": "Zephir Language syntax highlight for VSCode",
     "author": "Zephir Team",
     "license": "MIT",
     "publisher": "zephir-lang",
+    "icon": "images/zephir.png",
+    "readmeFilename": "README.md",
     "repository": {
         "type": "git",
         "url": "https://github.com/zephir-lang/zephir-vscode.git"

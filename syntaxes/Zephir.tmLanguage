@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Zephir Syntax: version 0.3.0</string>
+	<string></string>
 	<key>fileTypes</key>
 	<array>
 		<string>zep</string>

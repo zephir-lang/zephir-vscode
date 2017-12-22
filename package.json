@@ -1,6 +1,6 @@
 {
     "name": "zephir",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "displayName": "Zephir for VSCode",
     "title": "Zephir for VSCode",
     "description": "Zephir Language extension for VSCode",
@@ -12,8 +12,7 @@
         "url": "https://github.com/zephir-lang/zephir-vscode.git"
       },
     "engines": {
-        "vscode": "^1.15.0",
-        "atom": ">0.50.0"
+        "vscode": "^1.15.0"
     },
     "categories": [
         "Languages"

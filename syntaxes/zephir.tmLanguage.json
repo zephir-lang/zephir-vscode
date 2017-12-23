@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.17",
+	"version": "0.3.18",
 	"fileTypes": [
         "zep"
     ],
@@ -451,9 +451,6 @@
 		},
 		{
 			"include": "#scope-resolution"
-		},
-		{
-			"include": "#variables"
 		},
 		{
 			"include": "#strings"
@@ -969,9 +966,6 @@
 					"include": "#numbers"
 				},
 				{
-					"include": "#variables"
-				},
-				{
 					"match": "=>",
 					"name": "keyword.operator.key.zephir"
 				},
@@ -1476,22 +1470,6 @@
 					"name": "punctuation.definition.variable.zephir"
 				}
 			}
-		},
-		"variables": {
-			"patterns": [
-				{
-					"include": "#var_language"
-				},
-				{
-					"include": "#var_global"
-				},
-				{
-					"include": "#var_global_safer"
-				},
-				{
-					"include": "#var_basic"
-				}
-			]
 		}
 	}
 }

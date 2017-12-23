@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.10",
+	"version": "0.3.11",
 	"fileTypes": [
         "zep"
     ],
@@ -14,6 +14,9 @@
 	"foldingStopMarker": "^\\s*\\}",
 
 	"patterns": [
+		{
+			"include": "#comments"
+		},
 		{
 			"begin": "(?i)^\\s*(interface)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(extends)?\\s*",
 			"beginCaptures": {
@@ -421,6 +424,109 @@
 		}
 	],
 	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*\\*(?=\\s)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.zephir"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.zephir"
+						}
+					},
+					"name": "comment.block.documentation.zephirdoc.zephir",
+					"patterns": [
+						{
+							"include": "#zephir_doc"
+						}
+					]
+				},
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.zephir"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.zephir"
+				},
+				{
+					"begin": "(^\\s+)?(?=//)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.zephir"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "//",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.zephir"
+								}
+							},
+							"end": "\\n|(?=\\?>)",
+							"name": "comment.line.double-slash.zephir"
+						}
+					]
+				}
+			]
+		},
+		"class-builtin": {
+			"patterns": [
+				{
+					"match": "(?xi)\n(\\\\)?\\b\n((APC|Append)Iterator|Array(Access|Iterator|Object)\n|Bad(Function|Method)CallException\n|(Caching|CallbackFilter)Iterator|Collator|Collectable|Cond|Countable|CURLFile\n|Date(Interval|Period|Time(Interface|Immutable|Zone)?)?|Directory(Iterator)?|DomainException\n|DOM(Attr|CdataSection|CharacterData|Comment|Document(Fragment)?|Element|EntityReference\n    |Implementation|NamedNodeMap|Node(list)?|ProcessingInstruction|Text|XPath)\n|(Error)?Exception|EmptyIterator\n|finfo\n|Ev(Check|Child|Embed|Fork|Idle|Io|Loop|Periodic|Prepare|Signal|Stat|Timer|Watcher)?\n|Event(Base|Buffer(Event)?|SslContext|Http(Request|Connection)?|Config|DnsBase|Util|Listener)?\n|FANNConnection|(Filter|Filesystem)Iterator\n|Gender\\\\Gender|GlobIterator|Gmagick(Draw|Pixel)?\n|Haru(Annotation|Destination|Doc|Encoder|Font|Image|Outline|Page)\n|Http((Inflate|Deflate)?Stream|Message|Request(Pool)?|Response|QueryString)\n|HRTime\\\\(PerformanceCounter|StopWatch)\n|Intl(Calendar|((CodePoint|RuleBased)?Break|Parts)?Iterator|DateFormatter|TimeZone)\n|Imagick(Draw|Pixel(Iterator)?)?\n|InfiniteIterator|InvalidArgumentException|Iterator(Aggregate|Iterator)?\n|JsonSerializable\n|KTaglib_(MPEG_(File|AudioProperties)|Tag|ID3v2_(Tag|(AttachedPicture)?Frame))\n|Lapack|(Length|Locale|Logic)Exception|LimitIterator|Lua(Closure)?\n|Mongo(BinData|Client|Code|Collection|CommandCursor|Cursor(Exception)?|Date|DB(Ref)?|DeleteBatch\n      |Grid(FS(Cursor|File)?)|Id|InsertBatch|Int(32|64)|Log|Pool|Regex|ResultException|Timestamp\n      |UpdateBatch|Write(Batch|ConcernException))?\n|Memcache(d)?|MessageFormatter|MultipleIterator|Mutex\n|mysqli(_(driver|stmt|warning|result))?\n|MysqlndUh(Connection|PreparedStatement)\n|NoRewindIterator|Normalizer|NumberFormatter\n|OCI-(Collection|Lob)|OuterIterator|(OutOf(Bounds|Range)|Overflow)Exception\n|ParentIterator|PDO(Statement)?|Phar(Data|FileInfo)?|php_user_filter|Pool\n|QuickHash(Int(Set|StringHash)|StringIntHash)\n|Recursive(Array|Caching|Directory|Fallback|Filter|Iterator|Regex|Tree)?Iterator\n|Reflection(Class|Function(Abstract)?|Method|Object|Parameter|Property|(Zend)?Extension)?\n|RangeException|Reflector|RegexIterator|ResourceBundle|RuntimeException|RRD(Creator|Graph|Updater)\n|SAM(Connection|Message)|SCA(_(SoapProxy|LocalProxy))?\n|SDO_(DAS_(ChangeSummary|Data(Factory|Object)|Relational|Setting|XML(_Document)?)\n     |Data(Factory|Object)|Exception|List|Model_(Property|ReflectionDataObject|Type)|Sequence)\n|SeekableIterator|Serializable|SessionHandler(Interface)?|SimpleXML(Iterator|Element)|SNMP\n|Soap(Client|Fault|Header|Param|Server|Var)\n|SphinxClient|Spoofchecker\n|Spl(DoublyLinkedList|Enum|File(Info|Object)|FixedArray|(Max|Min)?Heap|Observer|ObjectStorage\n    |(Priority)?Queue|Stack|Subject|Type|TempFileObject)\n|SQLite(3(Result|Stmt)?|Database|Result|Unbuffered)\n|stdClass|streamWrapper|SVM(Model)?|Swish(Result(s)?|Search)?|Sync(Event|Mutex|ReaderWriter|Semaphore)\n|Thread(ed)?|tidy(Node)?|TokyoTyrant(Table|Iterator|Query)?|Transliterator|Traversable\n|UConverter|(Underflow|UnexpectedValue)Exception\n|V8Js(Exception)?|Varnish(Admin|Log|Stat)\n|Worker|Weak(Map|Ref)\n|XML(Diff\\\\(Base|DOM|File|Memory)|Reader|Writer)|XsltProcessor\n|Yaf_(Route_(Interface|Map|Regex|Rewrite|Simple|Supervar)\n     |Action_Abstract|Application|Config_(Simple|Ini|Abstract)|Controller_Abstract\n     |Dispatcher|Exception|Loader|Plugin_Abstract|Registry|Request_(Abstract|Simple|Http)\n     |Response_Abstract|Router|Session|View_(Simple|Interface))\n|Yar_(Client(_Exception)?|Concurrent_Client|Server(_Exception)?)\n|ZipArchive|ZMQ(Context|Device|Poll|Socket)?)\n\\b",
+					"name": "support.class.builtin.zephir",
+					"captures": {
+						"1": {
+							"name": "punctuation.separator.inheritance.zephir"
+						}
+					}
+				}
+			]
+		},
+		"class-name": {
+			"patterns": [
+				{
+					"begin": "(?i)(?=\\\\?[a-z_0-9]+\\\\)",
+					"end": "(?i)([a-z_][a-z_0-9]*)?(?![a-z0-9_\\\\])",
+					"endCaptures": {
+						"1": {
+							"name": "support.class.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#namespace"
+						}
+					]
+				},
+				{
+					"include": "#class-builtin"
+				},
+				{
+					"begin": "(?=[\\\\a-zA-Z_])",
+					"end": "(?i)([a-z_][a-z_0-9]*)?(?![a-z0-9_\\\\])",
+					"endCaptures": {
+						"1": {
+							"name": "support.class.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#namespace"
+						}
+					]
+				}
+			]
+		},
 		"namespace": {
 			"begin": "(?i)(?:(namespace)|[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?(\\\\)",
 			"beginCaptures": {
@@ -439,6 +545,140 @@
 					"name": "punctuation.separator.inheritance.zephir"
 				}
 			]
+		},
+		"zephir_doc": {
+			"patterns": [
+				{
+					"match": "^(?!\\s*\\*).*?(?:(?=\\*\\/)|$\\n?)",
+					"name": "invalid.illegal.missing-asterisk.zephirdoc.zephir"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "keyword.other.zephirdoc.zephir"
+						},
+						"3": {
+							"name": "storage.modifier.zephir"
+						},
+						"4": {
+							"name": "invalid.illegal.wrong-access-type.zephirdoc.zephir"
+						}
+					},
+					"match": "^\\s*\\*\\s*(@access)\\s+((public|private|protected)|(.+))\\s*$"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "keyword.other.zephirdoc.zephir"
+						},
+						"2": {
+							"name": "markup.underline.link.zephir"
+						}
+					},
+					"match": "(@xlink)\\s+(.+)\\s*$"
+				},
+				{
+					"begin": "(@(?:global|param|property(-(read|write))?|return|throws|var))\\s+(?=[A-Za-z_\\x{7f}-\\x{7fffffff}\\\\]|\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.other.zephirdoc.zephir"
+						}
+					},
+					"end": "(?=\\s|\\*/)",
+					"contentName": "meta.other.type.zephirdoc.zephir",
+					"patterns": [
+						{
+							"include": "#zephir_doc_types_array_multiple"
+						},
+						{
+							"include": "#zephir_doc_types_array_single"
+						},
+						{
+							"include": "#zephir_doc_types"
+						}
+					]
+				},
+				{
+					"match": "(?x)\n@\n(\n  api|abstract|author|category|copyright|example|global|inherit[Dd]oc|internal|\n  license|link|method|property(-(read|write))?|package|param|return|see|since|source|\n  static|subpackage|throws|todo|fixme|var|version|uses|deprecated|final|ignore\n)\\b",
+					"name": "keyword.other.zephirdoc.zephir"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "keyword.other.zephirdoc.zephir"
+						}
+					},
+					"match": "{(@(link|inherit[Dd]oc)).+?}",
+					"name": "meta.tag.inline.zephirdoc.zephir"
+				}
+			]
+		},
+		"zephir_doc_types": {
+			"match": "(?i)[a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*(\\|[a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)*",
+			"captures": {
+				"0": {
+					"patterns": [
+						{
+							"match": "(?x)\\b\n(int|integer|uint|bool|boolean|bool|float|double|long|ulong|char|uchar|string|void|unsigned|null|mixed|self|static|callback|resource|object|false|true)\\b",
+							"name": "keyword.other.type.zephir"
+						},
+						{
+							"include": "#class-name"
+						},
+						{
+							"match": "\\|",
+							"name": "punctuation.separator.delimiter.zephir"
+						}
+					]
+				}
+			}
+		},
+		"zephir_doc_types_array_multiple": {
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.type.begin.bracket.round.zephirdoc.zephir"
+				}
+			},
+			"end": "(\\))(\\[\\])|(?=\\*/)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.type.end.bracket.round.zephirdoc.zephir"
+				},
+				"2": {
+					"name": "keyword.other.array.zephirdoc.zephir"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#zephir_doc_types_array_multiple"
+				},
+				{
+					"include": "#zephir_doc_types_array_single"
+				},
+				{
+					"include": "#zephir_doc_types"
+				},
+				{
+					"match": "\\|",
+					"name": "punctuation.separator.delimiter.zephir"
+				}
+			]
+		},
+		"zephir_doc_types_array_single": {
+			"match": "(?i)([a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)(\\[\\])",
+			"captures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#zephir_doc_types"
+						}
+					]
+				},
+				"2": {
+					"name": "keyword.other.array.zephirdoc.zephir"
+				}
+			}
 		}
 	}
 }

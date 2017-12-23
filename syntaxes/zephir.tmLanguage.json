@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.19",
+	"version": "0.3.20",
 	"fileTypes": [
         "zep"
     ],
@@ -450,6 +450,14 @@
 			"include": "#switch_statement"
 		},
 		{
+			"match": "(?x)\n\\s*\n\\b(\n  echo|break|case|continue|declare|default|die|let|do|else(if)?|exit|for|goto|if|return|match|switch|use|while|loop|yield\n)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.control.${1:/downcase}.zephir"
+				}
+			}
+		},
+		{
 			"include": "#invoke-call"
 		},
 		{
@@ -485,10 +493,6 @@
 		{
 			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|implements|throws|clone)\\b",
 			"name": "storage.modifier.zephir"
-		},
-		{
-			"match": "\\b(echo|require|break|case|catch|let|continue|default|do|else|elseif|for|goto|if|return|switch|match|throw|try|while|loop)\\b",
-			"name": "keyword.control.zephir"
 		},
 		{
 			"match": "\\b(in|reverse|instanceof|new|typeof)\\b",

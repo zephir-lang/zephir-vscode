@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.12",
+	"version": "0.3.13",
 	"fileTypes": [
         "zep"
     ],
@@ -72,6 +72,58 @@
 					]
 				}
 			}
+		},
+		{
+			"begin": "(?i)(?:^)\\s*(namespace)\\s+",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.namespace.zephir"
+				}
+			},
+			"end": "(?<=})|(?=\\?>)",
+			"name": "meta.namespace.zephir",
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"match": "(?i)[a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]+",
+					"name": "entity.name.type.namespace.zephir",
+					"captures": {
+						"0": {
+							"patterns": [
+								{
+									"match": "\\\\",
+									"name": "punctuation.separator.inheritance.zephir"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "{",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.namespace.begin.bracket.curly.zephir"
+						}
+					},
+					"end": "}|(?=\\?>)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.namespace.end.bracket.curly.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"match": "[^\\s]+",
+					"name": "invalid.illegal.identifier.zephir"
+				}
+			]
 		},
 
 		{
@@ -511,7 +563,7 @@
 				"0": {
 					"patterns": [
 						{
-							"match": "(?x)\\b\n(int|integer|uint|bool|boolean|bool|float|double|long|ulong|char|uchar|string|void|unsigned|null|mixed|self|static|callback|resource|object|false|true)\\b",
+							"match": "(?x)\\b\n(int|integer|uint|bool|boolean|bool|float|double|long|ulong|char|uchar|string|void|unsigned|null|mixed\n|array|self|static|callback|resource|object|false|true)\\b",
 							"name": "keyword.other.type.zephir"
 						},
 						{

@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.13",
+	"version": "0.3.14",
 	"fileTypes": [
         "zep"
     ],
@@ -122,6 +122,95 @@
 				{
 					"match": "[^\\s]+",
 					"name": "invalid.illegal.identifier.zephir"
+				}
+			]
+		},
+		{
+			"match": "\\s+(?=use\\b)"
+		},
+		{
+			"begin": "(?i)\\buse\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.other.use.zephir"
+				}
+			},
+			"end": "(?<=})|(?=;)",
+			"name": "meta.use.zephir",
+			"patterns": [
+				{
+					"begin": "{",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.use.begin.bracket.curly.zephir"
+						}
+					},
+					"end": "}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.use.end.bracket.curly.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#scope-resolution"
+						},
+						{
+							"match": "(?xi)\n\\b(as)\n\\s+(final|abstract|public|private|protected|static)\n\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
+							"captures": {
+								"1": {
+									"name": "keyword.other.use-as.zephir"
+								},
+								"2": {
+									"name": "storage.modifier.zephir"
+								},
+								"3": {
+									"name": "entity.other.alias.zephir"
+								}
+							}
+						},
+						{
+							"match": "(?xi)\n\\b(as)\n\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
+							"captures": {
+								"1": {
+									"name": "keyword.other.use-as.zephir"
+								},
+								"2": {
+									"patterns": [
+										{
+											"match": "^(?:final|abstract|public|private|protected|static)$",
+											"name": "storage.modifier.zephir"
+										},
+										{
+											"match": ".+",
+											"name": "entity.other.alias.zephir"
+										}
+									]
+								}
+							}
+						},
+						{
+							"match": "(?i)\\b(insteadof)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
+							"captures": {
+								"1": {
+									"name": "keyword.other.use-insteadof.zephir"
+								},
+								"2": {
+									"name": "support.class.zephir"
+								}
+							}
+						},
+						{
+							"match": ";",
+							"name": "punctuation.terminator.expression.zephir"
+						},
+						{
+							"include": "#use-inner"
+						}
+					]
+				},
+				{
+					"include": "#use-inner"
 				}
 			]
 		},
@@ -623,6 +712,188 @@
 					"name": "keyword.other.array.zephirdoc.zephir"
 				}
 			}
+		},
+		"scope-resolution": {
+			"patterns": [
+				{
+					"match": "(?i)([a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)(?=\\s*::)",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"match": "\\b(self|static|parent)\\b",
+									"name": "storage.type.zephir"
+								},
+								{
+									"include": "#class-name"
+								},
+								{
+									"include": "#variable-name"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "(?i)(::)\\s*([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"2": {
+							"name": "entity.name.function.zephir"
+						},
+						"3": {
+							"name": "punctuation.definition.arguments.begin.bracket.round.zephir"
+						}
+					},
+					"end": "\\)|(?=\\?>)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.arguments.end.bracket.round.zephir"
+						}
+					},
+					"name": "meta.method-call.static.zephir",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"match": "(?i)(::)\\s*(class)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"2": {
+							"name": "keyword.other.class.zephir"
+						}
+					}
+				},
+				{
+					"match": "(?xi)\n(::)\\s*\n(?:\n  ((\\$+)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable\n  |\n  ([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)       # Constant\n)?",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"2": {
+							"name": "variable.other.class.zephir"
+						},
+						"3": {
+							"name": "punctuation.definition.variable.zephir"
+						},
+						"4": {
+							"name": "constant.other.class.zephir"
+						}
+					}
+				}
+			]
+		},
+		"use-inner": {
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"begin": "(?i)\\b(as)\\s+",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.other.use-as.zephir"
+						}
+					},
+					"end": "(?i)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*",
+					"endCaptures": {
+						"0": {
+							"name": "entity.other.alias.zephir"
+						}
+					}
+				},
+				{
+					"include": "#class-name"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.delimiter.zephir"
+				}
+			]
+		},
+		"var_global": {
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.variable.zephir"
+				}
+			},
+			"match": "((_(GET|POST|REQUEST|COOKIE|FILES))|arg(v|c))\\b",
+			"name": "variable.other.global.zephir"
+		},
+		"var_global_safer": {
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.variable.zephir"
+				}
+			},
+			"match": "((_(ENV|SERVER|SESSION)))",
+			"name": "variable.other.global.safer.zephir"
+		},
+		"variable-name": {
+			"patterns": [
+				{
+					"include": "#var_global"
+				},
+				{
+					"include": "#var_global_safer"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "variable.other.zephir"
+						},
+						"2": {
+							"name": "punctuation.definition.variable.zephir"
+						},
+						"4": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"5": {
+							"name": "variable.other.property.zephir"
+						},
+						"6": {
+							"name": "punctuation.section.array.begin.zephir"
+						},
+						"7": {
+							"name": "constant.numeric.index.zephir"
+						},
+						"8": {
+							"name": "variable.other.index.zephir"
+						},
+						"9": {
+							"name": "punctuation.definition.variable.zephir"
+						},
+						"10": {
+							"name": "string.unquoted.index.zephir"
+						},
+						"11": {
+							"name": "punctuation.section.array.end.zephir"
+						}
+					},
+					"match": "(?xi)\n((\\$)(?<name>[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*))\n(?:\n  (->)(\\g<name>)\n  |\n  (\\[)(?:(\\d+)|((\\$)\\g<name>)|([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*))(\\])\n)?"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "variable.other.zephir"
+						},
+						"2": {
+							"name": "punctuation.definition.variable.zephir"
+						},
+						"4": {
+							"name": "punctuation.definition.variable.zephir"
+						}
+					},
+					"match": "(?i)((\\${)(?<name>[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)(}))"
+				}
+			]
 		}
 	}
 }

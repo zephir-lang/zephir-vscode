@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.24",
+	"version": "0.3.25",
 	"fileTypes": [
         "zep"
     ],
@@ -450,7 +450,7 @@
 			"include": "#switch_statement"
 		},
 		{
-			"match": "(?x)\n\\s*\n\\b(\n  echo|break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|goto|if|return|match|switch|use|while|loop|yield\n)\\b",
+			"match": "(?x)\n\\s*\n\\b(\n  echo|break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|if|return|match|switch|use|while|loop|yield\n)\\b",
 			"captures": {
 				"1": {
 					"name": "keyword.control.${1:/downcase}.zephir"
@@ -534,6 +534,28 @@
 			"name": "meta.delimiter.method.period.zephir"
 		},
 
+		{
+			"include": "#instantiation"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.goto.zephir"
+				},
+				"2": {
+					"name": "support.other.zephir"
+				}
+			},
+			"match": "(?i)(goto)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "entity.name.goto-label.zephir"
+				}
+			},
+			"match": "(?i)^\\s*([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*:(?!:)"
+		},
 		{
 			"include": "#ternary_shorthand"
 		},

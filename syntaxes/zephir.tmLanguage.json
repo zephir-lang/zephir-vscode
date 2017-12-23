@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.16",
+	"version": "0.3.17",
 	"fileTypes": [
         "zep"
     ],
@@ -402,6 +402,62 @@
 				}
 			]
 		},
+		{
+			"begin": "(?x)\n((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)\n(function)\\s+\n(?i:\n  (__(?:call|construct|debugInfo|destruct|get|set|isset|unset|toString|\n        clone|set_state|sleep|wakeup|autoload|invoke|callStatic))\n  |([a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*)\n)\n\\s*(\\()",
+			"beginCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"match": "final|abstract|public|private|protected|static|inline|internal|scoped|deprecated",
+							"name": "storage.modifier.zephir"
+						}
+					]
+				},
+				"2": {
+					"name": "storage.type.function.zephir"
+				},
+				"3": {
+					"name": "support.function.magic.zephir"
+				},
+				"4": {
+					"name": "entity.name.function.zephir"
+				},
+				"5": {
+					"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
+				}
+			},
+			"contentName": "meta.function.parameters.zephir",
+			"end": "(\\))(?:\\s*(:)\\s*([a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))?",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.parameters.end.bracket.round.zephir"
+				},
+				"2": {
+					"name": "keyword.operator.return-value.zephir"
+				},
+				"3": {
+					"name": "storage.type.zephir"
+				}
+			},
+			"name": "meta.function.zephir",
+			"patterns": [
+				{
+					"include": "#function-parameters"
+				}
+			]
+		},
+		{
+			"include": "#invoke-call"
+		},
+		{
+			"include": "#scope-resolution"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#strings"
+		},
 
 		{
 			"captures": {
@@ -420,7 +476,7 @@
 			"name": "string.regexp.zephir"
 		},
 		{
-			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|final|implements|private|protected|public|internal|static|scoped|inline|throws|clone|deprecated)\\b",
+			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|implements|throws|clone)\\b",
 			"name": "storage.modifier.zephir"
 		},
 		{
@@ -843,6 +899,18 @@
 					"name": "punctuation.separator.inheritance.zephir"
 				}
 			]
+		},
+		"invoke-call": {
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.variable.zephir"
+				},
+				"2": {
+					"name": "variable.other.zephir"
+				}
+			},
+			"match": "(?i)(\\$+)?([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)(?=\\s*\\()",
+			"name": "meta.function-call.invoke.zephir"
 		},
 		"instantiation": {
 			"begin": "(?i)(new)\\s+",

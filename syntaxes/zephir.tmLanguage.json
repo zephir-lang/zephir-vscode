@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.14",
+	"version": "0.3.15",
 	"fileTypes": [
         "zep"
     ],
@@ -80,7 +80,7 @@
 					"name": "keyword.other.namespace.zephir"
 				}
 			},
-			"end": "(?<=})|(?=\\?>)",
+			"end": "(?<=})",
 			"name": "meta.namespace.zephir",
 			"patterns": [
 				{
@@ -107,7 +107,7 @@
 							"name": "punctuation.definition.namespace.begin.bracket.curly.zephir"
 						}
 					},
-					"end": "}|(?=\\?>)",
+					"end": "}",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.namespace.end.bracket.curly.zephir"
@@ -211,6 +211,128 @@
 				},
 				{
 					"include": "#use-inner"
+				}
+			]
+		},
+		{
+			"begin": "(?i)^\\s*(?:(abstract|final)\\s+)?(class)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.modifier.${1:/downcase}.zephir"
+				},
+				"2": {
+					"name": "storage.type.class.zephir"
+				},
+				"3": {
+					"name": "entity.name.type.class.zephir"
+				}
+			},
+			"end": "}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.class.end.bracket.curly.zephir"
+				}
+			},
+			"name": "meta.class.zephir",
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"begin": "(?i)(extends)\\s+",
+					"beginCaptures": {
+						"1": {
+							"name": "storage.modifier.extends.zephir"
+						}
+					},
+					"contentName": "meta.other.inherited-class.zephir",
+					"end": "(?i)(?=[^a-z0-9_\\x{7f}-\\x{7fffffff}\\\\])",
+					"patterns": [
+						{
+							"begin": "(?i)(?=\\\\?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*\\\\)",
+							"end": "(?i)([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?(?=[^a-z0-9_\\x{7f}-\\x{7fffffff}\\\\])",
+							"endCaptures": {
+								"1": {
+									"name": "entity.other.inherited-class.zephir"
+								}
+							},
+							"patterns": [
+								{
+									"include": "#namespace"
+								}
+							]
+						},
+						{
+							"include": "#class-builtin"
+						},
+						{
+							"include": "#namespace"
+						},
+						{
+							"match": "(?i)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*",
+							"name": "entity.other.inherited-class.zephir"
+						}
+					]
+				},
+				{
+					"begin": "(?i)(implements)\\s+",
+					"beginCaptures": {
+						"1": {
+							"name": "storage.modifier.implements.zephir"
+						}
+					},
+					"end": "(?i)(?=[;{])",
+					"patterns": [
+						{
+							"include": "#comments"
+						},
+						{
+							"begin": "(?i)(?=[a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]+)",
+							"contentName": "meta.other.inherited-class.zephir",
+							"end": "(?i)(?:\\s*(?:,|(?=[^a-z0-9_\\x{7f}-\\x{7fffffff}\\\\\\s]))\\s*)",
+							"patterns": [
+								{
+									"begin": "(?i)(?=\\\\?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*\\\\)",
+									"end": "(?i)([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?(?=[^a-z0-9_\\x{7f}-\\x{7fffffff}\\\\])",
+									"endCaptures": {
+										"1": {
+											"name": "entity.other.inherited-class.zephir"
+										}
+									},
+									"patterns": [
+										{
+											"include": "#namespace"
+										}
+									]
+								},
+								{
+									"include": "#class-builtin"
+								},
+								{
+									"include": "#namespace"
+								},
+								{
+									"match": "(?i)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*",
+									"name": "entity.other.inherited-class.zephir"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "{",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.class.begin.bracket.curly.zephir"
+						}
+					},
+					"end": "(?=})",
+					"contentName": "meta.class.body.zephir",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
 				}
 			]
 		},
@@ -363,35 +485,6 @@
 			]
 		},
 		{
-			"begin": "/\\*\\*(?!/)",
-			"captures": {
-				"0": {
-					"name": "punctuation.definition.comment.zephir"
-				}
-			},
-			"end": "\\*/",
-			"name": "comment.block.documentation.zephir"
-		},
-		{
-			"begin": "/\\*",
-			"captures": {
-				"0": {
-					"name": "punctuation.definition.comment.zephir"
-				}
-			},
-			"end": "\\*/",
-			"name": "comment.block.zephir"
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "punctuation.definition.comment.zephir"
-				}
-			},
-			"match": "(//).*$\\n?",
-			"name": "comment.line.double-slash.zephir"
-		},
-		{
 			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|final|implements|private|protected|public|internal|static|scoped|inline|throws|clone|deprecated)\\b",
 			"name": "storage.modifier.zephir"
 		},
@@ -505,7 +598,7 @@
 									"name": "punctuation.definition.comment.zephir"
 								}
 							},
-							"end": "\\n|(?=\\?>)",
+							"end": "\\n",
 							"name": "comment.line.double-slash.zephir"
 						}
 					]
@@ -747,7 +840,7 @@
 							"name": "punctuation.definition.arguments.begin.bracket.round.zephir"
 						}
 					},
-					"end": "\\)|(?=\\?>)",
+					"end": "\\)",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.arguments.end.bracket.round.zephir"

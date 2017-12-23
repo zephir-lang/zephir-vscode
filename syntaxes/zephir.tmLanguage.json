@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.11",
+	"version": "0.3.12",
 	"fileTypes": [
         "zep"
     ],
@@ -74,110 +74,6 @@
 			}
 		},
 
-		{
-			"captures": {
-				"1": {
-					"name": "support.class.zephir"
-				},
-				"2": {
-					"name": "support.constant.zephir"
-				},
-				"3": {
-					"name": "keyword.operator.zephir"
-				}
-			}
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "support.class.zephir"
-				},
-				"2": {
-					"name": "support.constant.zephir"
-				},
-				"3": {
-					"name": "entity.name.function.zephir"
-				},
-				"4": {
-					"name": "keyword.operator.zephir"
-				},
-				"5": {
-					"name": "storage.type.function.zephir"
-				},
-				"6": {
-					"name": "punctuation.definition.parameters.begin.zephir"
-				},
-				"7": {
-					"name": "variable.parameter.function.zephir"
-				},
-				"8": {
-					"name": "punctuation.definition.parameters.end.zephir"
-				}
-			}
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "support.class.zephir"
-				},
-				"2": {
-					"name": "support.constant.zephir"
-				},
-				"3": {
-					"name": "entity.name.function.zephir"
-				},
-				"4": {
-					"name": "keyword.operator.zephir"
-				}
-			}
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "support.class.zephir"
-				},
-				"2": {
-					"name": "entity.name.function.zephir"
-				},
-				"3": {
-					"name": "keyword.operator.zephir"
-				},
-				"4": {
-					"name": "storage.type.function.zephir"
-				},
-				"5": {
-					"name": "punctuation.definition.parameters.begin.zephir"
-				},
-				"6": {
-					"name": "variable.parameter.function.zephir"
-				},
-				"7": {
-					"name": "punctuation.definition.parameters.end.zephir"
-				}
-			}
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "entity.name.function.zephir"
-				},
-				"2": {
-					"name": "keyword.operator.zephir"
-				},
-				"3": {
-					"name": "storage.type.function.zephir"
-				},
-				"4": {
-					"name": "punctuation.definition.parameters.begin.zephir"
-				},
-				"5": {
-					"name": "variable.parameter.function.zephir"
-				},
-				"6": {
-					"name": "punctuation.definition.parameters.end.zephir"
-				}
-			}
-		},
 		{
 			"captures": {
 				"1": {
@@ -353,10 +249,6 @@
 			},
 			"match": "(//).*$\\n?",
 			"name": "comment.line.double-slash.zephir"
-		},
-		{
-			"match": "\\b(boolean|string|char|class|trait|use|as|get|__toString|set|abstract|double|float|function|int|long|var|void|ulong|uint|uchar|unsigned|self)\\b",
-			"name": "storage.type.zephir"
 		},
 		{
 			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|final|implements|private|protected|public|internal|static|scoped|inline|throws|clone|deprecated)\\b",

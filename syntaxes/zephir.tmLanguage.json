@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.23",
+	"version": "0.3.24",
 	"fileTypes": [
         "zep"
     ],
@@ -450,7 +450,7 @@
 			"include": "#switch_statement"
 		},
 		{
-			"match": "(?x)\n\\s*\n\\b(\n  echo|break|case|continue|declare|default|die|let|do|else(if)?|exit|for|goto|if|return|match|switch|use|while|loop|yield\n)\\b",
+			"match": "(?x)\n\\s*\n\\b(\n  echo|break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|goto|if|return|match|switch|use|while|loop|yield\n)\\b",
 			"captures": {
 				"1": {
 					"name": "keyword.control.${1:/downcase}.zephir"
@@ -483,9 +483,6 @@
 		},
 		{
 			"include": "#numbers"
-		},
-		{
-			"include": "#null_coalescing"
 		},
 
 		{
@@ -536,17 +533,72 @@
 			"match": "\\.",
 			"name": "meta.delimiter.method.period.zephir"
 		},
+
 		{
-			"match": "\\{|\\}",
-			"name": "meta.brace.curly.zephir"
+			"include": "#ternary_shorthand"
 		},
 		{
-			"match": "\\(|\\)",
-			"name": "meta.brace.round.zephir"
+			"include": "#null_coalescing"
 		},
 		{
-			"match": "\\[|\\]",
-			"name": "meta.brace.square.zephir"
+			"include": "#ternary_expression"
+		},
+		{
+			"begin": "{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.begin.bracket.curly.zephir"
+				}
+			},
+			"end": "}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.end.bracket.curly.zephir"
+				}
+			},
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.section.array.begin.zephir"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.array.end.zephir"
+				}
+			},
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.begin.bracket.round.zephir"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.end.bracket.round.zephir"
+				}
+			},
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
 		},
 		{
 			"include": "#constants"
@@ -1566,6 +1618,29 @@
 		"null_coalescing": {
 			"match": "\\?\\?",
 			"name": "keyword.operator.null-coalescing.zephir"
+		},
+		"ternary_shorthand": {
+			"match": "\\?:",
+			"name": "keyword.operator.ternary.zephir"
+		},
+		"ternary_expression": {
+			"begin": "\\?",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.operator.ternary.zephir"
+				}
+			},
+			"end": ":",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.ternary.zephir"
+				}
+			},
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
 		}
 	}
 }

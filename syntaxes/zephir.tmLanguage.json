@@ -1,6 +1,18 @@
 {
-	"version": "0.3.8",
+	"name": "Zephir",
+	"comment": "Zephir Language support for VSCode",
+	"version": "0.3.9",
+	"fileTypes": [
+        "zep"
+    ],
 	"scopeName": "source.zephir",
+	"information_for_contributors": [
+
+	],
+
+	"foldingStartMarker": "^.*\\bfunction\\s*(\\w+\\s*)?\\([^\\)]*\\)(\\s*\\{[^\\}]*)?\\s*$",
+	"foldingStopMarker": "^\\s*\\}",
+
 	"patterns": [
 		{
 			"begin": "(?i)^\\s*(interface)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(extends)?\\s*",
@@ -322,11 +334,11 @@
 			"name": "comment.line.double-slash.zephir"
 		},
 		{
-			"match": "\\b(boolean|string|char|class|trait|namespace|use|as|get|__toString|set|abstract|double|float|function|int|interface|long|var|void|ulong|uint|uchar|unsigned|self)\\b",
+			"match": "\\b(boolean|string|char|class|trait|use|as|get|__toString|set|abstract|double|float|function|int|long|var|void|ulong|uint|uchar|unsigned|self)\\b",
 			"name": "storage.type.zephir"
 		},
 		{
-			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|extends|final|implements|private|protected|public|internal|static|scoped|inline|throws|clone|deprecated)\\b",
+			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|final|implements|private|protected|public|internal|static|scoped|inline|throws|clone|deprecated)\\b",
 			"name": "storage.modifier.zephir"
 		},
 		{

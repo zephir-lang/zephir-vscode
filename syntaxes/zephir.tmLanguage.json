@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.18",
+	"version": "0.3.19",
 	"fileTypes": [
         "zep"
     ],
@@ -447,6 +447,9 @@
 			]
 		},
 		{
+			"include": "#switch_statement"
+		},
+		{
 			"include": "#invoke-call"
 		},
 		{
@@ -457,6 +460,10 @@
 		},
 		{
 			"include": "#null_coalescing"
+		},
+		{
+			"match": ",",
+			"name": "punctuation.separator.delimiter.zephir"
 		},
 
 		{
@@ -1473,6 +1480,63 @@
 					"name": "punctuation.definition.variable.zephir"
 				}
 			}
+		},
+		"switch_statement": {
+			"patterns": [
+				{
+					"match": "\\s+(?=switch\\b)"
+				},
+				{
+					"begin": "\\bswitch\\b(?!\\s*\\(?.*\\)?\\s*:)",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.control.switch.zephir"
+						}
+					},
+					"end": "}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.section.switch-block.end.bracket.curly.zephir"
+						}
+					},
+					"name": "meta.switch-statement.zephir",
+					"patterns": [
+						{
+							"begin": "\\(",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.switch-expression.begin.bracket.round.zephir"
+								}
+							},
+							"end": "\\)",
+							"endCaptures": {
+								"0": {
+									"name": "punctuation.definition.switch-expression.end.bracket.round.zephir"
+								}
+							},
+							"patterns": [
+								{
+									"include": "$self"
+								}
+							]
+						},
+						{
+							"begin": "{",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.section.switch-block.begin.bracket.curly.zephir"
+								}
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "$self"
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		"null_coalescing": {
 			"match": "\\?\\?",

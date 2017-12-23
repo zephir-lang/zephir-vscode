@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.20",
+	"version": "0.3.21",
 	"fileTypes": [
         "zep"
     ],
@@ -458,6 +458,24 @@
 			}
 		},
 		{
+			"begin": "(?i)\\b((?:require|include)(?:_once)?)\\s+",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.import.include.zephir"
+				}
+			},
+			"end": "(?=\\s|;|$)",
+			"name": "meta.include.zephir",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"include": "#constants"
+		},
+		{
 			"include": "#invoke-call"
 		},
 		{
@@ -465,6 +483,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
 		},
 		{
 			"include": "#null_coalescing"
@@ -594,7 +615,7 @@
 		"constants": {
 			"patterns": [
 				{
-					"match": "(?i)\\b(TRUE|FALSE|NULL|__(FILE|DIR|FUNCTION|CLASS|METHOD|LINE|NAMESPACE)__|ON|OFF|YES|NO|NL|BR|TAB)\\b",
+					"match": "(?i)\\b(TRUE|FALSE|NULL|__(FILE|LINE|DIR|FUNCTION|CLASS|METHOD|LINE|NAMESPACE)__|ON|OFF|YES|NO|NL|BR|TAB)\\b",
 					"name": "constant.language.zephir"
 				},
 				{

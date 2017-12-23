@@ -1,16 +1,6 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Zephir",
-	"version": "0.3.7",
-	"comment": "Zephir Language support for VSCode",
-	"fileTypes": [
-		"zep"
-	],
+	"version": "0.3.8",
 	"scopeName": "source.zephir",
-	"foldingStartMarker": "^.*\\bfunction\\s*(\\w+\\s*)?\\([^\\)]*\\)(\\s*\\{[^\\}]*)?\\s*$",
-	"foldingStopMarker": "^\\s*\\}",
-	"uuid": "39800073-5c5c-4e54-9669-a35f4ee5a213",
-
 	"patterns": [
 		{
 			"begin": "(?i)^\\s*(interface)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(extends)?\\s*",

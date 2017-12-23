@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Zephir",
-	"version": "0.3.6",
+	"version": "0.3.7",
 	"comment": "Zephir Language support for VSCode",
 	"fileTypes": [
 		"zep"
@@ -10,10 +10,47 @@
 	"foldingStartMarker": "^.*\\bfunction\\s*(\\w+\\s*)?\\([^\\)]*\\)(\\s*\\{[^\\}]*)?\\s*$",
 	"foldingStopMarker": "^\\s*\\}",
 	"uuid": "39800073-5c5c-4e54-9669-a35f4ee5a213",
+
 	"patterns": [
 		{
-			"include": "#comments"
+			"begin": "(?i)^\\s*(interface)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(extends)?\\s*",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.interface.zephir"
+				},
+				"2": {
+					"name": "entity.name.type.interface.zephir"
+				},
+				"3": {
+					"name": "storage.modifier.extends.zephir"
+				}
+			},
+			"end": "(?i)((?:[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*\\s*,\\s*)*)([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?\\s*(?:(?={)|$)",
+			"endCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"match": "(?i)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*",
+							"name": "entity.other.inherited-class.zephir"
+						},
+						{
+							"match": ",",
+							"name": "punctuation.separator.classes.zephir"
+						}
+					]
+				},
+				"2": {
+					"name": "entity.other.inherited-class.zephir"
+				}
+			},
+			"name": "meta.interface.zephir",
+			"patterns": [
+				{
+					"include": "#namespace"
+				}
+			]
 		},
+
 		{
 			"captures": {
 				"1": {
@@ -362,5 +399,26 @@
 			"match": "\\[|\\]",
 			"name": "meta.brace.square.zephir"
 		}
-	]
+	],
+	"repository": {
+		"namespace": {
+			"begin": "(?i)(?:(namespace)|[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?(\\\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.language.namespace.zephir"
+				},
+				"2": {
+					"name": "punctuation.separator.inheritance.zephir"
+				}
+			},
+			"end": "(?i)(?![a-z0-9_\\x{7f}-\\x{7fffffff}]*\\\\)",
+			"name": "support.other.namespace.zephir",
+			"patterns": [
+				{
+					"match": "\\\\",
+					"name": "punctuation.separator.inheritance.zephir"
+				}
+			]
+		}
+	}
 }

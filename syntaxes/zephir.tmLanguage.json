@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.22",
+	"version": "0.3.23",
 	"fileTypes": [
         "zep"
     ],
@@ -487,10 +487,6 @@
 		{
 			"include": "#null_coalescing"
 		},
-		{
-			"match": ",",
-			"name": "punctuation.separator.delimiter.zephir"
-		},
 
 		{
 			"captures": {
@@ -551,6 +547,13 @@
 		{
 			"match": "\\[|\\]",
 			"name": "meta.brace.square.zephir"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"match": ",",
+			"name": "punctuation.separator.delimiter.zephir"
 		}
 	],
 	"repository": {

@@ -455,6 +455,9 @@
 		{
 			"include": "#strings"
 		},
+		{
+			"include": "#null_coalescing"
+		},
 
 		{
 			"captures": {
@@ -1470,6 +1473,10 @@
 					"name": "punctuation.definition.variable.zephir"
 				}
 			}
+		},
+		"null_coalescing": {
+			"match": "\\?\\?",
+			"name": "keyword.operator.null-coalescing.zephir"
 		}
 	}
 }

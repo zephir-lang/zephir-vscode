@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.9",
+	"version": "0.3.10",
 	"fileTypes": [
         "zep"
     ],
@@ -51,6 +51,24 @@
 					"include": "#namespace"
 				}
 			]
+		},
+		{
+			"match": "(?i)^\\s*(namespace)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]+)(?=\\s*;)",
+			"name": "meta.namespace.zephir",
+			"captures": {
+				"1": {
+					"name": "keyword.other.namespace.zephir"
+				},
+				"2": {
+					"name": "entity.name.type.namespace.zephir",
+					"patterns": [
+						{
+							"match": "\\\\",
+							"name": "punctuation.separator.inheritance.zephir"
+						}
+					]
+				}
+			}
 		},
 
 		{

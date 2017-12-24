@@ -13,7 +13,6 @@
         "theme": "dark"
     },
     "readmeFilename": "README.md",
-    "preview": true,
     "engines": {
         "vscode": "^1.16.1"
     },

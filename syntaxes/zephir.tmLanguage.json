@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.32",
+	"version": "0.3.33",
 	"fileTypes": [
         "zep"
     ],
@@ -1030,13 +1030,13 @@
 			]
 		},
 		"typeof": {
-			"begin": "(?i)(typeof)\\s+",
+			"begin": "(?i)\\b(typeof)\\s+(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])\\s+===?\\s+",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.other.typeof.zephir"
 				}
 			},
-			"end": "(?i)(?=\"[^a-z]\")",
+			"end": "(?i)(?=\"[^a-z]+\")",
 			"patterns": [
 				{
 					"match": "(?i)(\"[^a-z]\")",
@@ -1051,7 +1051,7 @@
 			"begin": "(?i)\\b(instanceof)\\s+",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.other.typeof.zephir"
+					"name": "keyword.other.instanceof.zephir"
 				}
 			},
 			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",

@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.37",
+	"version": "0.3.38",
 	"fileTypes": [
         "zep"
     ],
@@ -502,7 +502,7 @@
 			"name": "keyword.operator.zephir"
 		},
 		{
-			"match": "!|\\$|%|\\*|\\-\\-|\\-|\\+\\+|\\+|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\||\\?\\:|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\.=|\\^=|\\b(in|void)\\b",
+			"match": "\\$|>>>=|(?<!\\()|\\-=|\\.=|\\b(in|void)\\b",
 			"name": "keyword.operator.zephir"
 		},
 		{
@@ -518,6 +518,52 @@
 			"name": "meta.delimiter.method.period.zephir"
 		},
 
+		{
+			"match": "\\b\\s*(:)\\s*\\b",
+			"name": "keyword.operator.key.zephir"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.operator.assignment.zephir"
+				},
+				"2": {
+					"name": "storage.modifier.reference.zephir"
+				},
+				"3": {
+					"name": "storage.modifier.reference.zephir"
+				}
+			},
+			"match": "(?i)(\\=)(&)|(&)(?=[$a-z_])"
+		},
+		{
+			"match": "@",
+			"name": "keyword.operator.error-control.zephir"
+		},
+		{
+			"match": "===|==|!==|!=|<>",
+			"name": "keyword.operator.comparison.zephir"
+		},
+		{
+			"match": "=|\\+=|\\-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=",
+			"name": "keyword.operator.assignment.zephir"
+		},
+		{
+			"match": "<=>|<=|>=|<|>",
+			"name": "keyword.operator.comparison.zephir"
+		},
+		{
+			"match": "\\-\\-|\\+\\+",
+			"name": "keyword.operator.increment-decrement.zephir"
+		},
+		{
+			"match": "\\-|\\+|\\*|/|%",
+			"name": "keyword.operator.arithmetic.zephir"
+		},
+		{
+			"match": "(?i)(!|&&|\\|\\|)|\\b(and|or|xor|as)\\b",
+			"name": "keyword.operator.logical.zephir"
+		},
 		{
 			"include": "#function-call"
 		},
@@ -1122,9 +1168,6 @@
 			},
 			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
 			"patterns": [
-				{
-					"include": "#variable-name"
-				}
 			]
 		},
 		"instanceof": {

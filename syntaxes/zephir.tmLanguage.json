@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.47",
+	"version": "0.3.48",
 	"fileTypes": [
         "zep"
     ],
@@ -359,7 +359,7 @@
 			]
 		},
 		{
-			"begin": "\\b(catch)\\s*(?:.*)\\s*(?:(?={)|$)",
+			"begin": "\\b(catch)\\s*",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.control.exception.catch.zephir"

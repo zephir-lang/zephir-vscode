@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.25",
+	"version": "0.3.26",
 	"fileTypes": [
         "zep"
     ],
@@ -486,22 +486,6 @@
 		},
 
 		{
-			"captures": {
-				"1": {
-					"name": "keyword.operator.new.zephir"
-				},
-				"2": {
-					"name": "entity.name.type.instance.zephir"
-				}
-			},
-			"match": "(new)\\s+(\\w+(?:\\.\\w*)?)",
-			"name": "meta.class.instance.constructor"
-		},
-		{
-			"match": "<([a-zA-Z0-9\\_\\\\\\!]+)>",
-			"name": "string.regexp.zephir"
-		},
-		{
 			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|implements|throws|clone)\\b",
 			"name": "storage.modifier.zephir"
 		},
@@ -534,6 +518,23 @@
 			"name": "meta.delimiter.method.period.zephir"
 		},
 
+		{
+			"begin": "(?i)\\b(instanceof)\\s+(?=[\\\\$a-z_])",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.operator.type.zephir"
+				}
+			},
+			"end": "(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
+			"patterns": [
+				{
+					"include": "#class-name"
+				},
+				{
+					"include": "#variable-name"
+				}
+			]
+		},
 		{
 			"include": "#instantiation"
 		},

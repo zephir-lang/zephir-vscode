@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.26",
+	"version": "0.3.27",
 	"fileTypes": [
         "zep"
     ],
@@ -490,7 +490,7 @@
 			"name": "storage.modifier.zephir"
 		},
 		{
-			"match": "\\b(in|reverse|instanceof|new|typeof)\\b",
+			"match": "\\b(in|reverse)\\b",
 			"name": "keyword.operator.zephir"
 		},
 		{
@@ -502,7 +502,7 @@
 			"name": "keyword.operator.zephir"
 		},
 		{
-			"match": "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\.=|\\^=|\\b(in|instanceof|new|typeof|void)\\b",
+			"match": "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\.=|\\^=|\\b(in|void)\\b",
 			"name": "keyword.operator.zephir"
 		},
 		{
@@ -519,7 +519,7 @@
 		},
 
 		{
-			"begin": "(?i)\\b(instanceof)\\s+(?=[\\\\$a-z_])",
+			"begin": "(?i)\\b(instanceof|typeof)\\s+(?=[\\\\$a-z_])",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.operator.type.zephir"

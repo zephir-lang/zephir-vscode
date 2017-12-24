@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.45",
+	"version": "0.3.46",
 	"fileTypes": [
         "zep"
     ],
@@ -9,10 +9,6 @@
 	"information_for_contributors": [
 
 	],
-
-	"foldingStartMarker": "^.*\\bfunction\\s*(\\w+\\s*)?\\([^\\)]*\\)(\\s*\\{[^\\}]*)?\\s*$",
-	"foldingStopMarker": "^\\s*\\}",
-
 	"patterns": [
 		{
 			"include": "#comments"
@@ -336,7 +332,6 @@
 				}
 			]
 		},
-		
 		{
 			"include": "#switch_statement"
 		},
@@ -363,7 +358,6 @@
 				}
 			]
 		},
-
 		{
 			"begin": "\\b(catch)\\s*(?:.*)\\s*({)",
 			"beginCaptures": {
@@ -374,7 +368,7 @@
 					"name": "punctuation.definition.parameters.begin.bracket.curly.zephir"
 				}
 			},
-			"end": "(?=})",
+			"end": "}",
 			"endCaptures": {
 				"0": {
 					"name": "punctuation.definition.parameters.end.bracket.curly.zephir"

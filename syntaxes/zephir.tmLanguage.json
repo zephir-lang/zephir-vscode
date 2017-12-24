@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.31",
+	"version": "0.3.32",
 	"fileTypes": [
         "zep"
     ],
@@ -519,38 +519,10 @@
 		},
 
 		{
-			"begin": "(?i)\\b(typeof)\\s+===?\\s+(?=\".*\")",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.operator.type.zephir"
-				}
-			},
-			"end": "(?i)(?=\".*\")",
-			"patterns": [
-				{
-					"include": "#strings"
-				},
-				{
-					"include": "#variable-name"
-				}
-			]
+			"include": "#typeof"
 		},
 		{
-			"begin": "(?i)\\b(instanceof)\\s+(?=[\\\\$a-z_])",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.operator.type.zephir"
-				}
-			},
-			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
-			"patterns": [
-				{
-					"include": "#class-name"
-				},
-				{
-					"include": "#variable-name"
-				}
-			]
+			"include": "#instanceof"
 		},
 		{
 			"include": "#instantiation"
@@ -1049,6 +1021,41 @@
 					"match": "(?i)(parent|static|self)(?![a-z0-9_\\x{7f}-\\x{7fffffff}])",
 					"name": "storage.type.zephir"
 				},
+				{
+					"include": "#class-name"
+				},
+				{
+					"include": "#variable-name"
+				}
+			]
+		},
+		"typeof": {
+			"begin": "(?i)(typeof)\\s+",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.typeof.zephir"
+				}
+			},
+			"end": "(?i)(?=\"[^a-z]\")",
+			"patterns": [
+				{
+					"match": "(?i)(\"[^a-z]\")",
+					"name": "string.quoted.double.zephir"
+				},
+				{
+					"include": "#string-double-quoted"
+				}
+			]
+		},
+		"instanceof": {
+			"begin": "(?i)\\b(instanceof)\\s+",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.typeof.zephir"
+				}
+			},
+			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
+			"patterns": [
 				{
 					"include": "#class-name"
 				},

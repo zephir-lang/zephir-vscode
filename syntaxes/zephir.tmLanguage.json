@@ -139,7 +139,7 @@
 			"patterns": [
 				{
 					"match": "\\b(const|function)\\b",
-					"name": "storage.type.${1:/downcase}.php"
+					"name": "storage.type.${1:/downcase}.zephir"
 				},
 				{
 					"begin": "{",
@@ -416,70 +416,7 @@
 			"name": "keyword.control.exception.zephir"
 		},
 		{
-			"begin": "(?i)\\b(function)\\s*(?=\\()",
-			"beginCaptures": {
-				"1": {
-					"name": "storage.type.function.zephir"
-				}
-			},
-			"end": "(?={)",
-			"name": "meta.function.closure.zephir",
-			"patterns": [
-				{
-					"begin": "\\(",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
-						}
-					},
-					"contentName": "meta.function.parameters.zephir",
-					"end": "\\)",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.parameters.end.bracket.round.zephir"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#function-parameters"
-						}
-					]
-				},
-				{
-					"begin": "(?i)(use)\\s*(\\()",
-					"beginCaptures": {
-						"1": {
-							"name": "keyword.other.function.use.zephir"
-						},
-						"2": {
-							"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
-						}
-					},
-					"end": "\\)",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.parameters.end.bracket.round.zephir"
-						}
-					},
-					"patterns": [
-						{
-							"captures": {
-								"1": {
-									"name": "variable.other.zephir"
-								},
-								"2": {
-									"name": "storage.modifier.reference.zephir"
-								},
-								"3": {
-									"name": "punctuation.definition.variable.zephir"
-								}
-							},
-							"match": "(?i)((&)?\\s*(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(?=,|\\))",
-							"name": "meta.function.closure.use.zephir"
-						}
-					]
-				}
-			]
+			"include": "#function-definition"
 		},
 		{
 			"begin": "(?x)\n((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)\n(function)\\s+\n(?i:\n  (__(?:call|construct|debugInfo|destruct|get|set|isset|unset|toString|\n        clone|set_state|sleep|wakeup|autoload|invoke|callStatic))\n  |([a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*)\n)\n\\s*(\\()",
@@ -595,6 +532,9 @@
 					"name": "punctuation.definition.storage-type.end.bracket.round.zephir"
 				}
 			}
+		},
+		{
+			"include": "#typehinting"
 		},
 		{
 			"match": "(?i)\\b(array|real|double|float|uint|int(eger)?|u?long|u?char|void|unsigned|null|bool(ean)?|string|class|var|function|interface|parent|self|object)\\b",
@@ -926,6 +866,72 @@
 				{
 					"match": "(?i)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*",
 					"name": "constant.other.zephir"
+				}
+			]
+		},
+		"function-definition": {
+			"begin": "(?i)\\b(function)\\s*(?=\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.function.zephir"
+				}
+			},
+			"end": "(?={)",
+			"name": "meta.function.closure.zephir",
+			"patterns": [
+				{
+					"begin": "\\(",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
+						}
+					},
+					"contentName": "meta.function.parameters.zephir",
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.parameters.end.bracket.round.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#function-parameters"
+						}
+					]
+				},
+				{
+					"begin": "(?i)(use)\\s*(\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.other.function.use.zephir"
+						},
+						"2": {
+							"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
+						}
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.parameters.end.bracket.round.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"captures": {
+								"1": {
+									"name": "variable.other.zephir"
+								},
+								"2": {
+									"name": "storage.modifier.reference.zephir"
+								},
+								"3": {
+									"name": "punctuation.definition.variable.zephir"
+								}
+							},
+							"match": "(?i)((&)?\\s*(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(?=,|\\))",
+							"name": "meta.function.closure.use.zephir"
+						}
+					]
 				}
 			]
 		},
@@ -1272,6 +1278,30 @@
 			},
 			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
 			"patterns": [
+			]
+		},
+		"typehinting": {
+			"begin": "<",
+			"captures": {
+				"0": {
+					"name": "keyword.other.angle-bracket.zephir"
+				}
+			},
+			"comment": "Angle brackets may be used around a type hinting.",
+			"end": ">|(\\s)",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.other.angle-bracket.zephir"
+				},
+				"1": {
+					"name": "invalid.illegal.missing.angle-bracket.zephir"
+				}
+			},
+			"name": "meta.function.parameter.typehinted.zephir",
+			"patterns": [
+				{
+					"include": "#class-name"
+				}
 			]
 		},
 		"instanceof": {

@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+ - Added support of typehinting highlighting
+
 ### Fixed
 - Fixed highlighting of arrays
 - Fixed highlighting of variable names

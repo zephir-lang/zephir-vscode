@@ -1,7 +1,7 @@
 # Zephir for VSCode
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/zephir-lang/zephir-vscode.svg?branch=master](https://travis-ci.org/zephir-lang/zephir-vscode)
+[![Build Status](https://travis-ci.org/zephir-lang/zephir-vscode.svg?branch=master)](https://travis-ci.org/zephir-lang/zephir-vscode)
 [![Version](https://vsmarketplacebadge.apphb.com/version-short/zephir-lang.zephir.svg)](https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir)
 [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/zephir-lang.zephir.svg)](https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/zephir-lang.zephir.svg)](https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir)

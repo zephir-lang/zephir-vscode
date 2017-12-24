@@ -1,39 +1,72 @@
 {
     "name": "zephir",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "displayName": "Zephir for VSCode",
     "title": "Zephir for VSCode",
     "description": "Zephir Language support for VSCode",
     "author": "Zephir Team",
-    "license": "MIT",
+    "license": "SEE LICENSE IN LICENSE",
     "publisher": "zephir-lang",
     "icon": "images/zephir.png",
+    "galleryBanner": {
+        "color": "#272729",
+        "theme": "dark"
+    },
     "readmeFilename": "README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/zephir-lang/zephir-vscode.git"
-      },
+    "preview": true,
     "engines": {
-        "vscode": "^1.15.0"
+        "vscode": "^1.16.1"
     },
     "categories": [
-        "Languages"
+        "Languages",
+        "Snippets"
     ],
     "keywords": [
         "language",
         "zephir",
+        "zep",
+        "extension",
         "highlight",
         "syntax",
         "snippets"
     ],
     "homepage": "https://github.com/zephir-lang/zephir-vscode",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zephir-lang/zephir-vscode.git"
+      },
     "bugs": {
         "url": "https://github.com/zephir-lang/zephir-vscode/issues"
     },
-    "galleryBanner": {
-        "color": "#272729",
-        "theme": "dark"
-    },
+    "qna": "https://github.com/zephir-lang/zephir-vscode/issues",
+    "markdown": "github",
+    "badges": [
+        {
+            "url": "https://img.shields.io/badge/License-MIT-brightgreen.svg",
+            "href": "https://opensource.org/licenses/MIT",
+            "description": "License: MIT"
+        },
+        {
+            "url": "https://travis-ci.org/zephir-lang/zephir-vscode.svg?branch=master",
+            "href": "https://travis-ci.org/zephir-lang/zephir-vscode",
+            "description": "Build Status"
+        },
+        {
+            "url": "https://vsmarketplacebadge.apphb.com/version-short/zephir-lang.zephir.svg",
+            "href": "https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir",
+            "description": "Version"
+        },
+        {
+            "url": "https://vsmarketplacebadge.apphb.com/installs-short/zephir-lang.zephir.svg",
+            "href": "https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir",
+            "description": "Installs"
+        },
+        {
+            "url": "https://vsmarketplacebadge.apphb.com/rating-short/zephir-lang.zephir.svg",
+            "href": "https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir",
+            "description": "Ratings"
+        }
+    ],
     "contributes": {
         "languages": [
             {
@@ -46,6 +79,12 @@
                     ".zep"
                 ],
                 "configuration": "./language-configuration.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "zephir",
+                "path": "./snippets/zephir.json"
             }
         ],
         "grammars": [

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- Fixed highlighting of arrays
+- Fixed highlighting of variable names
+
 ## [1.1.0] - 2017-12-24
 
 ### Added

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.1] - 2017-12-24
+### Fixed
+ - Fixed support of `this` and globals highlighting
+
 ## [1.3.0] - 2017-12-24
 ### Added
  - Added support of type hint highlighting for function parameters
@@ -28,7 +32,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Initial stable release
 
-[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.0.0...v1.1.0

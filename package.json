@@ -1,6 +1,6 @@
 {
     "name": "zephir",
-    "version": "0.3.28",
+    "version": "0.3.29",
     "displayName": "Zephir for VSCode",
     "title": "Zephir for VSCode",
     "description": "Zephir Language support for VSCode",

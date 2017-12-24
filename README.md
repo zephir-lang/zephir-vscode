@@ -19,11 +19,13 @@ If you would like to discuss an idea or need help or have other feedback you can
   - [x] Basic highlighting
   - [x] Advanced syntax highlighting for Zephir
 
+* Editing
+  - [x] Completion and snippets
+
 ## Todo
 
 * Editing
   - [ ] Document formatting (enable on save with `editor.formatOnSave`)
-  - [ ] Completion and snippets
   - [ ] Rename symbol (<kbd>F2</kbd> or right click)
   - [ ] Case splitting
 

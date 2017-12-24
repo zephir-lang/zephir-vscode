@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.38",
+	"version": "0.3.39",
 	"fileTypes": [
         "zep"
     ],
@@ -518,10 +518,6 @@
 			"name": "meta.delimiter.method.period.zephir"
 		},
 
-		{
-			"match": "\\b\\s*(:)\\s*\\b",
-			"name": "keyword.operator.key.zephir"
-		},
 		{
 			"captures": {
 				"1": {

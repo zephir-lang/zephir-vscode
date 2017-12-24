@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.41",
+	"version": "0.3.42",
 	"fileTypes": [
         "zep"
     ],
@@ -481,9 +481,6 @@
 		{
 			"include": "#strings"
 		},
-		{
-			"include": "#numbers"
-		},
 
 		{
 			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|implements|throws|clone)\\b",
@@ -503,20 +500,23 @@
 		},
 
 		{
-			"match": "\\;",
+			"match": ";",
+			"name": "punctuation.terminator.expression.zephir"
+		},
+		{
+			"match": ":",
 			"name": "punctuation.terminator.statement.zephir"
 		},
 		{
-			"match": ",[ |\\t]*",
-			"name": "meta.delimiter.object.comma.zephir"
+			"include": "#numbers"
 		},
 		{
-			"match": "\\.",
-			"name": "meta.delimiter.method.period.zephir"
+			"match": "(?i)\\bclone\\b",
+			"name": "keyword.other.clone.zephir"
 		},
 		{
-			"match": "\\b\\s*(:)\\s*\\b",
-			"name": "keyword.operator.key.zephir"
+			"match": "\\.=?",
+			"name": "keyword.operator.string.zephir"
 		},
 		{
 			"captures": {

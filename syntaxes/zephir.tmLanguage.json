@@ -7,7 +7,7 @@
 	],
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"fileTypes": [
         "zep"
     ],
@@ -1028,6 +1028,9 @@
 							"name": "invalid.illegal.non-null-typehinted.zephir"
 						}
 					}
+				},
+				{
+					"include": "#typehinting"
 				},
 				{
 					"begin": "(?xi)\n(\\\\?(?:[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*\\\\)*)                 # Optional namespace\n([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)                               # Typehinted class name\n\\s+((&)?\\s*(\\.\\.\\.)?(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference",

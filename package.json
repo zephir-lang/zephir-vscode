@@ -41,29 +41,9 @@
     "markdown": "github",
     "badges": [
         {
-            "url": "https://img.shields.io/badge/License-MIT-brightgreen.svg",
-            "href": "https://opensource.org/licenses/MIT",
-            "description": "License: MIT"
-        },
-        {
-            "url": "https://travis-ci.org/zephir-lang/zephir-vscode.svg?branch=master",
-            "href": "https://travis-ci.org/zephir-lang/zephir-vscode",
-            "description": "Build Status"
-        },
-        {
-            "url": "https://vsmarketplacebadge.apphb.com/version-short/zephir-lang.zephir.svg",
-            "href": "https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir",
-            "description": "Version"
-        },
-        {
-            "url": "https://vsmarketplacebadge.apphb.com/installs-short/zephir-lang.zephir.svg",
-            "href": "https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir",
-            "description": "Installs"
-        },
-        {
-            "url": "https://vsmarketplacebadge.apphb.com/rating-short/zephir-lang.zephir.svg",
-            "href": "https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir",
-            "description": "Ratings"
+            "url": "https://img.shields.io/badge/discord-zephir-blue.svg?logo=slack",
+            "href": "https://discord.gg/PNFsSsr",
+            "description": "Join us on Discord"
         }
     ],
     "contributes": {

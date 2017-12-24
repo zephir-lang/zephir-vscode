@@ -1,6 +1,6 @@
 # Zephir for VSCode
 
-Zephir Language support for VSCode.
+[Zephir Language](https://zephir-lang.com) support for VSCode.
 
 ## Installation
 
@@ -20,7 +20,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 
 * Highlighting
   - [x] Basic highlighting
-  - [ ] Advanced syntax highlighting for Zephir
+  - [x] Advanced syntax highlighting for Zephir
 
 * Editing
   - [ ] Document formatting (enable on save with `editor.formatOnSave`)

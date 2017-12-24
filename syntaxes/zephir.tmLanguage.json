@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.46",
+	"version": "0.3.47",
 	"fileTypes": [
         "zep"
     ],
@@ -359,19 +359,16 @@
 			]
 		},
 		{
-			"begin": "\\b(catch)\\s*(?:.*)\\s*({)",
+			"begin": "\\b(catch)\\s*(?:.*)\\s*(?:(?={)|$)",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.control.exception.catch.zephir"
-				},
-				"2": {
-					"name": "punctuation.definition.parameters.begin.bracket.curly.zephir"
 				}
 			},
-			"end": "}",
+			"end": "{",
 			"endCaptures": {
 				"0": {
-					"name": "punctuation.definition.parameters.end.bracket.curly.zephir"
+					"name": "punctuation.definition.parameters.begin.bracket.curly.zephir"
 				}
 			},
 			"name": "meta.catch.zephir",

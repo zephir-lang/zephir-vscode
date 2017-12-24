@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.39",
+	"version": "0.3.40",
 	"fileTypes": [
         "zep"
     ],
@@ -501,10 +501,7 @@
 			"match": "->|::",
 			"name": "keyword.operator.zephir"
 		},
-		{
-			"match": "\\$|>>>=|(?<!\\()|\\-=|\\.=|\\b(in|void)\\b",
-			"name": "keyword.operator.zephir"
-		},
+
 		{
 			"match": "\\;",
 			"name": "punctuation.terminator.statement.zephir"

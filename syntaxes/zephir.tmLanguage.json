@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.42",
+	"version": "0.3.43",
 	"fileTypes": [
         "zep"
     ],
@@ -483,7 +483,7 @@
 		},
 
 		{
-			"match": "\\b(const|fetch|empty|likely|unlikely|isset|unset|implements|throws|clone)\\b",
+			"match": "\\b(fetch|empty|likely|unlikely|isset|unset|implements|throws)\\b",
 			"name": "storage.modifier.zephir"
 		},
 		{
@@ -499,6 +499,13 @@
 			"name": "keyword.operator.zephir"
 		},
 
+		{
+			"match": "(?i)\\b(global|abstract|const|extends|implements|final|private|protected|public|static|inline|internal|scoped|deprecated)\\b",
+			"name": "storage.modifier.zephir"
+		},
+		{
+			"include": "#object"
+		},
 		{
 			"match": ";",
 			"name": "punctuation.terminator.expression.zephir"
@@ -1437,6 +1444,72 @@
 				{
 					"match": "0|[1-9][0-9]*",
 					"name": "constant.numeric.decimal.zephir"
+				}
+			]
+		},
+		"object": {
+			"patterns": [
+				{
+					"begin": "(->)(\\$?{)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"2": {
+							"name": "punctuation.definition.variable.zephir"
+						}
+					},
+					"end": "}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.variable.zephir"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"begin": "(?i)(->)([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"2": {
+							"name": "entity.name.function.zephir"
+						},
+						"3": {
+							"name": "punctuation.definition.arguments.begin.bracket.round.zephir"
+						}
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.arguments.end.bracket.round.zephir"
+						}
+					},
+					"name": "meta.method-call.zephir",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "keyword.operator.class.zephir"
+						},
+						"2": {
+							"name": "variable.other.property.zephir"
+						},
+						"3": {
+							"name": "punctuation.definition.variable.zephir"
+						}
+					},
+					"match": "(?i)(->)((\\$)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?"
 				}
 			]
 		},

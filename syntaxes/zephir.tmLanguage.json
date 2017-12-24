@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.35",
+	"version": "0.3.36",
 	"fileTypes": [
         "zep"
     ],
@@ -450,7 +450,7 @@
 			"include": "#switch_statement"
 		},
 		{
-			"match": "(?x)\n\\s*\n\\b(\n  echo|break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|if|return|match|switch|use|while|loop|yield\n)\\b",
+			"match": "(?x)\n\\s*\n\\b(\n  break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|if|return|match|switch|use|while|loop|yield\n)\\b",
 			"captures": {
 				"1": {
 					"name": "keyword.control.${1:/downcase}.zephir"
@@ -502,7 +502,7 @@
 			"name": "keyword.operator.zephir"
 		},
 		{
-			"match": "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\.=|\\^=|\\b(in|void)\\b",
+			"match": "!|\\$|%|\\*|\\-\\-|\\-|\\+\\+|\\+|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\||\\?\\:|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\.=|\\^=|\\b(in|void)\\b",
 			"name": "keyword.operator.zephir"
 		},
 		{
@@ -518,6 +518,10 @@
 			"name": "meta.delimiter.method.period.zephir"
 		},
 
+		{
+			"match": "<<|>>|~|\\^|&|\\|",
+			"name": "keyword.operator.bitwise.zephir"
+		},
 		{
 			"include": "#typeof"
 		},
@@ -1030,14 +1034,24 @@
 			]
 		},
 		"typeof": {
-			"match": "\\btypeof\\b",
-			"name": "keyword.other.typeof.zephir"
-		},
-		"instanceof": {
-			"begin": "(?i)\\b(instanceof)\\s+",
+			"begin": "(?i)\\b(typeof)\\s+(?=[\\\\$a-z_])",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.other.instanceof.zephir"
+					"name": "keyword.operator.type.zephir"
+				}
+			},
+			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
+			"patterns": [
+				{
+					"include": "#variable-name"
+				}
+			]
+		},
+		"instanceof": {
+			"begin": "(?i)\\b(instanceof)\\s+(?=[\\\\$a-z_])",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.operator.type.zephir"
 				}
 			},
 			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",

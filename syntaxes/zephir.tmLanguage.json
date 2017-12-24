@@ -384,7 +384,7 @@
 					"include": "#namespace"
 				},
 				{
-					"match": "(?xi)\n([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)                 # Exception class\n((?:\\s*\\|\\s*[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)*) # Optional additional exception classes\n\\s*(?:,)\\s*\n((\\$+)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)           # Variable",
+					"match": "(?xi)\n([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)                 # Exception class\n((?:\\s*\\|\\s*[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)*) # Optional additional exception classes\n\\s*(?:,)\\s*\n((\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)           # Variable",
 					"captures": {
 						"1": {
 							"name": "support.class.exception.zephir"
@@ -474,7 +474,7 @@
 									"name": "punctuation.definition.variable.zephir"
 								}
 							},
-							"match": "(?i)((&)?\\s*(\\$)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(?=,|\\))",
+							"match": "(?i)((&)?\\s*(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(?=,|\\))",
 							"name": "meta.function.closure.use.zephir"
 						}
 					]
@@ -535,25 +535,35 @@
 			"include": "#strings"
 		},
 		{
-			"captures": {
-				"1": {
-					"name": "support.function.construct.zephir"
-				},
-				"2": {
-					"name": "punctuation.definition.array.begin.bracket.round.zephir"
-				},
-				"3": {
-					"name": "punctuation.definition.array.end.bracket.round.zephir"
-				}
-			},
-			"match": "(array)\\s*(\\[)(\\])",
-			"name": "meta.array.empty.zephir"
-		},
-		{
-			"begin": "(array)\\s*(\\[)",
+			"begin": "\\b(array)\\b\\s*(?=[\\\\$a-z_])",
 			"beginCaptures": {
 				"1": {
-					"name": "support.function.construct.zephir"
+					"name": "storage.type.zephir"
+				}
+			},
+			"end": "(=)\\s*(\\[)",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.operator.assignment.zephir"
+				},
+				"2": {
+					"name": "punctuation.section.array.begin.zephir"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#variable-name"
+				},
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "\\b(array)\\b\\s*\\b(?:(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\b\\s*(\\[)",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.zephir"
 				},
 				"2": {
 					"name": "punctuation.section.array.begin.zephir"
@@ -929,7 +939,7 @@
 					"name": "punctuation.separator.delimiter.zephir"
 				},
 				{
-					"begin": "(?xi)\n(array)                                                            # Typehint\n\\s+((&)?\\s*(\\$+)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n\\s*(=)\\s*(array)\\s*(\\()                                        # Default value",
+					"begin": "(?xi)\n(array)                                                            # Typehint\n\\s+((&)?\\s*(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n\\s*(=)\\s*(array)\\s*(\\()                                        # Default value",
 					"beginCaptures": {
 						"1": {
 							"name": "storage.type.zephir"
@@ -974,7 +984,7 @@
 					]
 				},
 				{
-					"match": "(?xi)\n(array|callable)                                                   # Typehint\n\\s+((&)?\\s*(\\$)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n(?:                                                                # Optional default value\n  \\s*(=)\\s*\n  (?:\n    (null)\n    |\n    (\\[)((?>[^\\[\\]]+|\\[\\g<8>\\])*)(\\])\n    |((?:\\S*?\\(\\))|(?:\\S*?))\n  )\n)?\n\\s*(?=,|\\)|/[/*]|\\#|$) # A closing parentheses (end of argument list) or a comma or a comment",
+					"match": "(?xi)\n(array|callable)                                                   # Typehint\n\\s+((&)?\\s*(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n(?:                                                                # Optional default value\n  \\s*(=)\\s*\n  (?:\n    (null)\n    |\n    (\\[)((?>[^\\[\\]]+|\\[\\g<8>\\])*)(\\])\n    |((?:\\S*?\\(\\))|(?:\\S*?))\n  )\n)?\n\\s*(?=,|\\)|/[/*]|\\#|$) # A closing parentheses (end of argument list) or a comma or a comment",
 					"name": "meta.function.parameter.array.zephir",
 					"captures": {
 						"1": {
@@ -1014,7 +1024,7 @@
 					}
 				},
 				{
-					"begin": "(?xi)\n(\\\\?(?:[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*\\\\)*)                 # Optional namespace\n([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)                               # Typehinted class name\n\\s+((&)?\\s*(\\.\\.\\.)?(\\$+)[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference",
+					"begin": "(?xi)\n(\\\\?(?:[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*\\\\)*)                 # Optional namespace\n([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)                               # Typehinted class name\n\\s+((&)?\\s*(\\.\\.\\.)?(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference",
 					"beginCaptures": {
 						"1": {
 							"name": "support.other.namespace.zephir",
@@ -1079,11 +1089,11 @@
 							"name": "punctuation.definition.variable.zephir"
 						}
 					},
-					"match": "(?xi)\n((&)?\\s*(\\.\\.\\.)?(\\$)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n\\s*(?=,|\\)|/[/*]|\\#|$) # A closing parentheses (end of argument list) or a comma or a comment",
+					"match": "(?xi)\n((&)?\\s*(\\.\\.\\.)?(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n\\s*(?=,|\\)|/[/*]|\\#|$) # A closing parentheses (end of argument list) or a comma or a comment",
 					"name": "meta.function.parameter.no-default.zephir"
 				},
 				{
-					"begin": "(?xi)\n((&)?\\s*(\\.\\.\\.)?(\\$)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n\\s*(=)\\s*\n(?:(\\[)((?>[^\\[\\]]+|\\[\\g<6>\\])*)(\\]))?                              # Optional default type",
+					"begin": "(?xi)\n((&)?\\s*(\\.\\.\\.)?(\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*) # Variable name with possible reference\n\\s*(=)\\s*\n(?:(\\[)((?>[^\\[\\]]+|\\[\\g<6>\\])*)(\\]))?                              # Optional default type",
 					"beginCaptures": {
 						"1": {
 							"name": "variable.other.zephir"
@@ -1600,7 +1610,7 @@
 							"name": "punctuation.definition.variable.zephir"
 						}
 					},
-					"match": "(?i)(->)((\\$)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?"
+					"match": "(?i)(->)((\\$+)?[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?"
 				}
 			]
 		},
@@ -1861,7 +1871,7 @@
 							"name": "punctuation.section.array.end.zephir"
 						}
 					},
-					"match": "(?xi)\n((\\$)?(?<name>[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*))\n(?:\n  (->)(\\g<name>)\n  |\n  (\\[)(?:(\\d+)|((\\$)\\g<name>)|([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*))(\\])\n)?"
+					"match": "(?xi)\n((\\$+)?(?<name>[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*))\n(?:\n  (->)(\\g<name>)\n  |\n  (\\[)(?:(\\d+)|((\\$+)?\\g<name>)|([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*))(\\])\n)?"
 				}
 			]
 		},

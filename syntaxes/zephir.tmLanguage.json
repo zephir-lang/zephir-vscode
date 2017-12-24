@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.43",
+	"version": "0.3.44",
 	"fileTypes": [
         "zep"
     ],
@@ -336,6 +336,37 @@
 				}
 			]
 		},
+		
+		{
+			"include": "#switch_statement"
+		},
+		{
+			"match": "(?x)\n\\s*\n\\b(\n  break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|fetch|reverse|likely|unlikely|if|return|match|switch|use|while|loop|yield\n)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.control.${1:/downcase}.zephir"
+				}
+			}
+		},
+		{
+			"begin": "(?i)\\b((?:require|include)(?:_once)?)\\s+",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.import.include.zephir"
+				}
+			},
+			"end": "(?=\\s|;|$)",
+			"name": "meta.include.zephir",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"match": "\\b(catch|try|throw|exception|finally)\\b",
+			"name": "keyword.control.exception.zephir"
+		},
 		{
 			"begin": "(?i)\\b(function)\\s*(?=\\()",
 			"beginCaptures": {
@@ -447,32 +478,6 @@
 			]
 		},
 		{
-			"include": "#switch_statement"
-		},
-		{
-			"match": "(?x)\n\\s*\n\\b(\n  break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|if|return|match|switch|use|while|loop|yield\n)\\b",
-			"captures": {
-				"1": {
-					"name": "keyword.control.${1:/downcase}.zephir"
-				}
-			}
-		},
-		{
-			"begin": "(?i)\\b((?:require|include)(?:_once)?)\\s+",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.control.import.include.zephir"
-				}
-			},
-			"end": "(?=\\s|;|$)",
-			"name": "meta.include.zephir",
-			"patterns": [
-				{
-					"include": "$self"
-				}
-			]
-		},
-		{
 			"include": "#invoke-call"
 		},
 		{
@@ -481,24 +486,63 @@
 		{
 			"include": "#strings"
 		},
-
 		{
-			"match": "\\b(fetch|empty|likely|unlikely|isset|unset|implements|throws)\\b",
-			"name": "storage.modifier.zephir"
+			"captures": {
+				"1": {
+					"name": "support.function.construct.zephir"
+				},
+				"2": {
+					"name": "punctuation.definition.array.begin.bracket.round.zephir"
+				},
+				"3": {
+					"name": "punctuation.definition.array.end.bracket.round.zephir"
+				}
+			},
+			
+			"match": "(array)\\s*(\\[)(\\])",
+			"name": "meta.array.empty.zephir"
 		},
 		{
-			"match": "\\b(in|reverse)\\b",
-			"name": "keyword.operator.zephir"
+			"begin": "(array)\\s*(\\[)",
+			"beginCaptures": {
+				"1": {
+					"name": "support.function.construct.zephir"
+				},
+				"2": {
+					"name": "punctuation.section.array.begin.zephir"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.array.end.zephir"
+				}
+			},
+			"name": "meta.array.zephir",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
 		},
 		{
-			"match": "\\b(parent|self|this)\\b",
-			"name": "variable.language.zephir"
+			"match": "(?i)(\\()\\s*(array|real|double|float|int(?:eger)?|bool(?:ean)?|string|u?long|u?char|void|unsigned|null|object|binary|unset)\\s*(\\))",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.storage-type.begin.bracket.round.zephir"
+				},
+				"2": {
+					"name": "storage.type.zephir"
+				},
+				"3": {
+					"name": "punctuation.definition.storage-type.end.bracket.round.zephir"
+				}
+			}
 		},
 		{
-			"match": "->|::",
-			"name": "keyword.operator.zephir"
+			"match": "(?i)\\b(array|real|double|float|uint|int(eger)?|u?long|u?char|void|unsigned|null|bool(ean)?|string|class|var|function|interface|parent|self|object)\\b",
+			"name": "storage.type.zephir"
 		},
-
 		{
 			"match": "(?i)\\b(global|abstract|const|extends|implements|final|private|protected|public|static|inline|internal|scoped|deprecated)\\b",
 			"name": "storage.modifier.zephir"
@@ -1354,7 +1398,7 @@
 				"0": {
 					"patterns": [
 						{
-							"match": "(?x)\\b\n(int|integer|uint|bool|boolean|bool|float|double|long|ulong|char|uchar|string|void|unsigned|null|mixed\n|array|self|static|callback|resource|object|false|true)\\b",
+							"match": "(?x)\\b\n(int(eger)?|uint|bool(ean)?|float|double|u?long|u?char|string|void|unsigned|null|mixed\n|array|self|static|callback|resource|object|false|true)\\b",
 							"name": "keyword.other.type.zephir"
 						},
 						{
@@ -1906,7 +1950,7 @@
 					"name": "support.function.com.zephir"
 				},
 				{
-					"begin": "(?i)\\b(isset|unset|eval|empty|list)\\b",
+					"begin": "(?i)\\b(isset|unset|eval|empty|list|in)\\b",
 					"name": "support.function.construct.zephir"
 				},
 				{

@@ -2,8 +2,6 @@
 
 Zephir Language support for VSCode.
 
-![Zephir for VSCode](https://user-images.githubusercontent.com/1256298/34313929-afbbe4bc-e777-11e7-9b00-35e4b7cea164.png)
-
 ## Installation
 
 * Open the Command Pallete <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
@@ -16,7 +14,7 @@ Once the extension is installed, reload VSCode.
 ## Discussion
 
 There is an `#editorsupport` channel on the Phalcon [Discord Server](https://discord.gg/PNFsSsr).
-If you would like to discuss an idea or need help or have other feedback you can usually find me (@klay) idling there.
+If you would like to discuss an idea or need help or have other feedback you can usually find me (`@klay`) idling there.
 
 ## Features
 

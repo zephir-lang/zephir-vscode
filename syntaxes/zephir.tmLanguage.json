@@ -1,7 +1,7 @@
 {
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "0.3.29",
+	"version": "0.3.30",
 	"fileTypes": [
         "zep"
     ],
@@ -522,7 +522,7 @@
 			"begin": "(?i)\\b(instanceof|typeof)\\s+(?=[\\\\$a-z_])",
 			"beginCaptures": {
 				"0": {
-					"name": "keyword.operator.zephir"
+					"name": "keyword.other.is-type.zephir"
 				},
 				"1": {
 					"name": "keyword.operator.type.zephir"

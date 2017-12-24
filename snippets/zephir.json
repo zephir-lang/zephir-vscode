@@ -1,0 +1,161 @@
+{
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if ${1:expression} {",
+            "\t${2:body}",
+            "}"
+        ],
+        "description": "Code snippet for an if statement"
+    },
+    "if/else": {
+        "prefix": "if/else",
+        "body": [
+            "if ${1:condition} {",
+            "\t${2:body}",
+            "} else {",
+            "\t${3:body}",
+            "}"
+        ],
+        "description": "Code snippet for an if statement with else"
+    },
+    "elseif": {
+        "prefix": "elseif",
+        "body": [
+            "elseif ${1:expression} {",
+            "\t${2:body}",
+            "}"
+        ],
+        "description": "Code snippet for an elseif statement"
+    },
+    "else": {
+        "prefix": "else",
+        "body": [
+            "else {",
+            "\t${1:body}",
+            "}"
+        ],
+        "description": "Code snippet for an else statement"
+    },
+    "switch": {
+        "prefix": "switch",
+        "body": [
+            "switch ${1:expression} {",
+            "\tcase ${2:value}:",
+            "\t\t${3:body}",
+            "\t\tbreak;",
+            "\tdefault ${4:value}",
+            "\t\t${5:body}",
+            "}"
+        ],
+        "description": "Code snippet for an switch statement"
+    },
+    "case": {
+        "prefix": "case",
+        "body": [
+            "case ${2:value}:",
+            "\t${3:body}",
+            "\tbreak;"
+        ],
+        "description": "Code snippet for an case statement"
+    },
+    "while": {
+        "prefix": "while",
+        "body": [
+            "while ${1:expression} {",
+            "\t${2:body}",
+            "}"
+        ],
+        "description": "Code snippet for a while loop"
+    },
+    "loop": {
+        "prefix": "loop",
+        "body": [
+            "loop {",
+            "\t${2:body}",
+            "}"
+        ],
+        "description": "Code snippet for a loop statement"
+    },
+    "for": {
+        "prefix": "for",
+        "body": [
+            "for ${1:key}, ${2:value} in ${2:expression} {",
+            "\t${3:body}",
+            "}"
+        ],
+        "description": "Code snippet for a for loop"
+    },
+    "try/catch": {
+        "prefix": "try/catch",
+        "body": [
+            "try {",
+            "\t${1:body}",
+            "} catch \\Throwable, e {",
+            "\t${2:body}",
+            "}"
+        ],
+        "description": "Code snippet for a try/catch statement"
+    },
+    "try/catch/finally": {
+        "prefix": "try/finally",
+        "body": [
+            "try {",
+            "\t${1:body}",
+            "} catch \\Throwable, e {",
+            "\t${2:body}",
+            "} finally {",
+            "\t${3:body}",
+            "}"
+        ],
+        "description": "Code snippet for a try/catch/finally statement"
+    },
+    "function": {
+        "prefix": "function",
+        "body": [
+            "function ${1:funcname}(${2:parameter_list}) -> void",
+            "{",
+            "\t${3:body}",
+            "}"
+        ],
+        "description": "Code snippet for a function definition"
+    },
+    "method": {
+        "prefix": "function",
+        "body": [
+            "public function ${1:funcname}(${2:parameter_list}) -> void",
+            "{",
+            "\t${3:pass}",
+            "}"
+        ],
+        "description": "Code snippet for a class method"
+    },
+    "class": {
+        "prefix": "class",
+        "body": [
+            "class ${1:classname}",
+            "{",
+            "\tpublic function __construct(${2:arguments})",
+            "\t{",
+            "\t\t// Enter your code here",
+            "\t}",
+            "}"
+        ],
+        "description": "Code snippet for a class definition"
+    },
+    "namespce/class": {
+        "prefix": "class",
+        "body": [
+            "namespace ${1:namespacename};",
+            "",
+            "class ${2:classname}",
+            "{",
+            "\tpublic function __construct(${3:arguments})",
+            "\t{",
+            "\t\t// Enter your code here",
+            "\t}",
+            "}"
+        ],
+        "description": "Code snippet for a namespaced class definition"
+    }
+}

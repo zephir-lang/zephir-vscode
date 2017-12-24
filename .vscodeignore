@@ -4,5 +4,7 @@
 
 TODO
 
-.vscode/**
 wip/**
+
+out/test/**
+test/**

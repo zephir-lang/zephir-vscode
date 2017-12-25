@@ -10,6 +10,12 @@ TODO
 out
 wip
 node_modules
+client/server
 .vscode-test
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
 *.vsix

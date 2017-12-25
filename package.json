@@ -1,7 +1,7 @@
 {
     "name": "zephir",
     "version": "1.3.1",
-    "displayName": "Zephir for VSCode",
+    "displayName": "Zephir",
     "title": "Zephir for VSCode",
     "description": "Zephir Language support for VSCode",
     "author": "Zephir Team",
@@ -44,13 +44,18 @@
             "description": "Join us on Discord"
         }
     ],
+    "activationEvents": [
+        "onLanguage:zephir"
+    ],
+    "main": "./out/client",
     "contributes": {
         "languages": [
             {
                 "id": "zephir",
                 "aliases": [
                     "Zephir",
-                    "zephir"
+                    "zephir",
+                    "zep"
                 ],
                 "extensions": [
                     ".zep"
@@ -70,7 +75,30 @@
                 "scopeName": "source.zephir",
                 "path": "./syntaxes/zephir.tmLanguage.json"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Zephir configuration",
+            "properties": {
+                "zephir.client.maxNumberOfProblems": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 100,
+                    "description": "Controls the maximum number of problems produced by the server."
+                },
+                "zephir.client.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "off",
+                    "description": "Traces the communication between VSCode and the language server."
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -78,6 +106,11 @@
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "dependencies": {
+        "vscode-languageclient": "3.5.0",
+        "vscode-languageserver": "3.5.0",
+        "vscode-languageserver-protocol": "3.5.0"
     },
     "devDependencies": {
         "typescript": "^2.6.1",

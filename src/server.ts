@@ -60,7 +60,8 @@ let maxNumberOfProblems: number;
 // as well.
 connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
-	maxNumberOfProblems = settings.zephir.maxNumberOfProblems || 100;
+    maxNumberOfProblems = settings.zephir.maxNumberOfProblems || 100;
+
 	// Revalidate any open text documents
 	documents.all().forEach(validateTextDocument);
 });
@@ -71,20 +72,7 @@ function validateTextDocument(textDocument: TextDocument): void {
     let problems = 0;
 
     for (var i = 0; i < lines.length && problems < maxNumberOfProblems; i++) {
-		let line = lines[i];
-		let index = line.indexOf('typescript');
-		if (index >= 0) {
-			problems++;
-			diagnostics.push({
-				severity: DiagnosticSeverity.Warning,
-				range: {
-					start: { line: i, character: index },
-					end: { line: i, character: index + 10 }
-				},
-				message: `${line.substr(index, 10)} should be spelled TypeScript`,
-				source: 'ex'
-			});
-		}
+		// ...
     }
 
     // Send the computed diagnostics to VSCode.
@@ -103,14 +91,9 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 	// info and always provide the same completion items.
 	return [
 		{
-			label: 'TypeScript',
+			label: 'Zephir',
 			kind: CompletionItemKind.Text,
 			data: 1
-		},
-		{
-			label: 'JavaScript',
-			kind: CompletionItemKind.Text,
-			data: 2
 		}
 	]
 });
@@ -119,12 +102,10 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 // the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 	if (item.data === 1) {
-		item.detail = 'TypeScript details',
-			item.documentation = 'TypeScript documentation'
-	} else if (item.data === 2) {
-		item.detail = 'JavaScript details',
-			item.documentation = 'JavaScript documentation'
-	}
+		item.detail = 'Zephir details',
+		item.documentation = 'Zephir documentation'
+    }
+
 	return item;
 });
 

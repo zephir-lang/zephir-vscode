@@ -21,6 +21,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 
 * Editing
   - [x] Completion and snippets
+  - [x] Smart Bracket Matching
 
 ## Todo
 

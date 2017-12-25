@@ -26,14 +26,16 @@ If you would like to discuss an idea or need help or have other feedback you can
 
 * Editing
   - [ ] Document formatting (enable on save with `editor.formatOnSave`)
-  - [ ] Rename symbol (<kbd>F2</kbd> or right click)
+  - [ ] [Rename symbol](https://code.visualstudio.com/docs/editor/editingevolved#_rename-symbol) (<kbd>F2</kbd> or right click)
   - [ ] Case splitting
 
 * Navigation
-  - [ ] Symbol outline for buffers (<kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>O</kbd>) (type `:` in list to sort items)
-  - [ ] Symbol outline for project (<kbd>Cmd</kbd> + <kbd>T</kbd>) (supports regular expressions)
-  - [ ] Jump-to-definition (<kbd>Ctrl</kbd> + click) and code preview (<kbd>Cmd</kbd> + hover)
+  - [ ] [Symbol outline for buffers](https://code.visualstudio.com/docs/editor/editingevolved#_goto-symbol) (<kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>O</kbd>) (type `:` in list to sort items)
+  - [ ] [Symbol outline for project](https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name) (<kbd>Cmd</kbd> + <kbd>T</kbd>) (supports regular expressions)
+  - [ ] [Jump-to-definition](https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition) (<kbd>Ctrl</kbd> + click) and code preview (<kbd>Cmd</kbd> + hover)
   - [ ] Find references (<kbd>Shift</kbd> + <kbd>F12</kbd> or right click)
+
+* Static Analysis
 
 ## Getting Started
 

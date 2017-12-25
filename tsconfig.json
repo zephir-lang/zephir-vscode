@@ -1,12 +1,15 @@
 {
     "compilerOptions": {
         "module": "commonjs",
+        "newLine": "LF",
         "target": "es6",
         "outDir": "out",
+        "pretty": true,
         "lib": [
             "es6"
         ],
         "sourceMap": true,
+        "strict": true,
         "rootDir": "src"
     },
     "exclude": [

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.2] - 2017-12-25
+
 ### Cahnged
 - Bump required VSCode version
 - Code cleanup. This project is only for syntax highlighting and snippets support
@@ -36,7 +38,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Initial stable release
 
-[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.2...HEAD
+[1.3.2]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.1.0...v1.2.0

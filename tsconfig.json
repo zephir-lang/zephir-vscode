@@ -10,8 +10,11 @@
         ],
         "sourceMap": true,
         "strict": true,
-        "rootDir": "src"
+        "rootDir": "."
     },
+    "include": [
+        "src/**/*"
+    ],
     "exclude": [
         "node_modules",
         ".vscode-test"

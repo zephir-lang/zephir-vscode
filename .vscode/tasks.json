@@ -22,17 +22,6 @@
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "identifier": "npm",
-            "label": "npm: run",
-            "type": "shell",
-            "command": "npm",
-            "args": [
-                "run", "compile", "--loglevel", "silent"
-            ],
-            "isBackground": true,
-            "problemMatcher": "$tsc-watch"
         }
     ]
 }

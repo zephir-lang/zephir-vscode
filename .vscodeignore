@@ -2,15 +2,5 @@
 .gitignore
 .npmignore
 
-TODO
-tsconfig.json
-
-wip/**
 .vscode/**
-.vscode-test/**
 .github/**
-
-src/**
-out/**/*.map
-out/test/**
-test/**

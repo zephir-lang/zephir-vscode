@@ -5,13 +5,7 @@
 #
 # https://help.github.com/articles/ignoring-files/#create-a-global-gitignore
 
-TODO
-
-out
-wip
 node_modules
-client/server
-.vscode-test
 
 .vscode/*
 !.vscode/settings.json

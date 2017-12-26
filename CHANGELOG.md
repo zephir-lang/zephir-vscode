@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Cahnged
 - Bump required VSCode version
+- Code cleanup. This project is only for syntax highlighting and snippets support
 
 ## [1.3.1] - 2017-12-24
 ### Fixed

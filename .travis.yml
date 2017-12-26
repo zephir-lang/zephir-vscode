@@ -6,12 +6,24 @@ notifications:
 
 language: node_js
 
-node_js:
-  - 7.4 # Sort with the version bundled in supported vscode.
+git:
+  depth: 1
 
 os:
   - osx
   - linux
+
+env:
+  matrix:
+    - CODE_VERSION="1.19.0"
+
+cache:
+  apt: true
+  yarn: true
+  bundler: true
+  timeout: 604800
+  directories:
+    - node_modules
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "linux" ]; then
@@ -21,8 +33,11 @@ before_install:
     fi
 
 install:
-  # - npm install
-  # - npm run vscode:prepublish
+  - npm install
+  - npm run vscode:prepublish
 
 script:
-  - true
+  - npm test
+
+after_success:
+  - if [[ ! -z "${CODECOV_TOKEN}" ]]; then bash <(curl -s https://codecov.io/bash); fi;

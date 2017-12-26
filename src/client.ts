@@ -13,7 +13,7 @@ export function activate(context: ExtensionContext) {
     const debugOptions = {
         execArgv: [
             "--nolazy",
-            "--inspect=6009"
+            "--debug=6004"
         ]
     };
 
@@ -33,24 +33,22 @@ export function activate(context: ExtensionContext) {
 
     // Options to control the language client
     const clientOptions: LanguageClientOptions = {
-		// Register the server for plain text documents
 		documentSelector: [
             {
                 scheme: 'file',
-                language: 'zephir'
+                language: 'zephir',
+                pattern: '*.zep'
             }
         ],
 		synchronize: {
-			// Synchronize the setting section 'languageServerExample' to the server
 			configurationSection: 'zephir',
-			// Notify the server about file changes to '.clientrc files contain in the workspace
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+			fileEvents: workspace.createFileSystemWatcher('**/.zlintrc')
         },
         initializationOptions: {}
     }
 
     // Create the language client and start the client.
-    const client = new LanguageClient('zephir', 'Zephir Server Example', serverOptions, clientOptions);
+    const client = new LanguageClient('zephir', 'Zephir Language Server', serverOptions, clientOptions);
     const disposable = client.start();
 
     // Push the disposable to the context's subscriptions so that the

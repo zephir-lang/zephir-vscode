@@ -47,7 +47,7 @@
     "activationEvents": [
         "onLanguage:zephir"
     ],
-    "main": "./out/client",
+    "main": "./out/src/client",
     "contributes": {
         "languages": [
             {
@@ -80,13 +80,13 @@
             "type": "object",
             "title": "Zephir configuration",
             "properties": {
-                "zephir.client.maxNumberOfProblems": {
+                "zephir.maxNumberOfProblems": {
                     "scope": "resource",
                     "type": "number",
                     "default": 100,
                     "description": "Controls the maximum number of problems produced by the server."
                 },
-                "zephir.client.trace.server": {
+                "zephir.trace.server": {
                     "scope": "window",
                     "type": "string",
                     "enum": [
@@ -101,8 +101,9 @@
         }
     },
     "scripts": {
+        "clean": "rm -rf ./out/*",
         "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
+        "compile": "npm run clean && tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
@@ -115,6 +116,8 @@
     "devDependencies": {
         "typescript": "^2.6.1",
         "vscode": "^1.1.6",
+        "mocha": "^3.5.3",
+        "tslint": "^5.7.0",
         "@types/node": "^7.0.43",
         "@types/mocha": "^2.2.42"
     }

@@ -5,6 +5,9 @@
     "title": "Zephir for VSCode",
     "description": "Zephir Language syntax highlighting and snippets for VSCode.",
     "author": "Zephir Team",
+    "contributors": [
+        "Serghei Iakovlev  [@klay]"
+    ],
     "license": "SEE LICENSE IN LICENSE",
     "publisher": "zephir-lang",
     "icon": "images/zephir.png",

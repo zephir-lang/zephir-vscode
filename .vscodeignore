@@ -2,5 +2,6 @@
 .gitignore
 .npmignore
 
+wip
 .vscode/**
 .github/**

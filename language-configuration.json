@@ -32,8 +32,8 @@
     },
     "folding": {
         "markers": {
-            "start": "^\\s*(#|\/\/)region\\b",
-            "end": "^\\s*(#|\/\/)endregion\\b"
+            "start": "^\\s*//\\s*(?:(?:#?region\\b)|(?:<editor-fold\\b))",
+            "end": "^\\s*//\\s*(?:(?:#?endregion\\b)|(?:</editor-fold>))"
         }
     }
 }

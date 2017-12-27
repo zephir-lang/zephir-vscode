@@ -12,6 +12,8 @@
 * Highlighting
   - [x] Basic highlighting
   - [x] Advanced syntax highlighting for Zephir
+  - [x] [Regions Folding](https://code.visualstudio.com/docs/editor/codebasics#_folding)
+    by markers `//#region` and `// #endregion` or `//<editor-fold>` and `//</editor-fold>`
 
 * Editing
   - [x] Completion and snippets

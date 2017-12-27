@@ -20,6 +20,7 @@
 * Editing
   - [x] Completion and snippets
   - [x] Smart Bracket Matching
+  - [x] Smart indent rules
 
 * Navigation
   - [x] [Regions Folding](https://code.visualstudio.com/docs/editor/codebasics#_folding) by markers:

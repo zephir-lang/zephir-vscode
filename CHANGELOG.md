@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Introduced smart indent rules based on controll flow and language statements
+
 ## [1.3.3] - 2017-12-27
 
 ### Cahnged

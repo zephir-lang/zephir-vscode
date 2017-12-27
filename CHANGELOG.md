@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Introduced smart indent rules based on controll flow and language statements
+- Amended code snippets
 
 ## [1.3.3] - 2017-12-27
 

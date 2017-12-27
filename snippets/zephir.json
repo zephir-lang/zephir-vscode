@@ -1,127 +1,168 @@
 {
-    "if": {
+    "if …": {
         "prefix": "if",
         "body": [
             "if ${1:expression} {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "}"
         ],
         "description": "Code snippet for an if statement"
     },
-    "if/else": {
-        "prefix": "if/else",
+    "if … else …": {
+        "prefix": "ifel",
         "body": [
             "if ${1:condition} {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "} else {",
-            "\t${3:body}",
+            "\t${3:// code}",
             "}"
         ],
         "description": "Code snippet for an if statement with else"
     },
-    "elseif": {
+    "elseif …": {
         "prefix": "elseif",
         "body": [
             "elseif ${1:expression} {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "}"
         ],
         "description": "Code snippet for an elseif statement"
     },
-    "else": {
+    "else …": {
         "prefix": "else",
         "body": [
             "else {",
-            "\t${1:body}",
+            "\t${1:// code}",
             "}"
         ],
         "description": "Code snippet for an else statement"
     },
-    "switch": {
+    "switch …": {
         "prefix": "switch",
         "body": [
             "switch ${1:expression} {",
             "\tcase ${2:value}:",
-            "\t\t${3:body}",
+            "\t\t${3:// code}",
             "\t\tbreak;",
             "\tdefault ${4:value}",
-            "\t\t${5:body}",
+            "\t\t${5:// code}",
             "}"
         ],
         "description": "Code snippet for an switch statement"
     },
-    "case": {
+    "case …": {
         "prefix": "case",
         "body": [
             "case ${2:value}:",
-            "\t${3:body}",
+            "\t${3:// code}",
             "\tbreak;"
         ],
         "description": "Code snippet for an case statement"
     },
-    "while": {
+    "while …": {
         "prefix": "while",
         "body": [
             "while ${1:expression} {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "}"
         ],
         "description": "Code snippet for a while loop"
+    },
+    "do … while …": {
+        "prefix": "do",
+        "body": [
+            "do {",
+            "\t${1:// code}",
+            "} while ${2:expression};"
+        ],
+        "description": "Code snippet for a do while loop"
     },
     "loop": {
         "prefix": "loop",
         "body": [
             "loop {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "}"
         ],
         "description": "Code snippet for a loop statement"
     },
-    "for": {
+    "for … in …": {
         "prefix": "for",
         "body": [
-            "for ${1:key}, ${2:value} in ${2:expression} {",
-            "\t${3:body}",
+            "for ${1:item} in ${2:list} {",
+            "\t${3:// code}",
             "}"
         ],
         "description": "Code snippet for a for loop"
     },
-    "try/catch": {
-        "prefix": "try/catch",
+    "fetch …, …": {
+        "prefix": "fetch",
+        "body": [
+            "fetch ${1:value}, ${2:${3:list}}"
+        ],
+        "description": "Code snippet for a fetch statement"
+    },
+    "if fetch …, …": {
+        "prefix": "ifetch",
+        "body": [
+            "if fetch ${1:value}, ${2:${3:list}} {",
+            "\t${4:// code}",
+            "}"
+        ],
+        "description": "Code snippet for a if/fetch statement"
+    },
+    "typeof …": {
+        "prefix": "type",
+        "body": [
+            "typeof ${1:variable}"
+        ],
+        "description": "Code snippet for a typeof statement"
+    },
+    "if typeof … == \"…\"": {
+        "prefix": "itype",
+        "body": [
+            "if typeof ${1:variable} == ${2:\"${3:string}\"} {",
+            "\t${4:// code}",
+            "}"
+        ],
+        "description": "Code snippet for a typeof statement"
+    },
+    "try … catch …": {
+        "prefix": "try",
         "body": [
             "try {",
             "\t${1:body}",
             "} catch \\Throwable, e {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "}"
         ],
         "description": "Code snippet for a try/catch statement"
     },
-    "try/catch/finally": {
-        "prefix": "try/finally",
+    "try … catch … finally …": {
+        "prefix": "tryf",
         "body": [
             "try {",
             "\t${1:body}",
             "} catch \\Throwable, e {",
-            "\t${2:body}",
+            "\t${2:// code}",
             "} finally {",
-            "\t${3:body}",
+            "\t${3:// code}",
             "}"
         ],
         "description": "Code snippet for a try/catch/finally statement"
     },
-    "function": {
-        "prefix": "function",
+    "function …": {
+        "prefix": "fun",
         "body": [
             "function ${1:funcname}(${2:parameter_list}) -> void",
             "{",
-            "\t${3:body}",
+            "\t${3:// code}",
             "}"
         ],
         "description": "Code snippet for a function definition"
     },
-    "method": {
-        "prefix": "function",
+    "method …": {
+        "prefix": "met",
         "body": [
             "public function ${1:funcname}(${2:parameter_list}) -> void",
             "{",
@@ -130,7 +171,7 @@
         ],
         "description": "Code snippet for a class method"
     },
-    "class": {
+    "class …": {
         "prefix": "class",
         "body": [
             "class ${1:classname}",
@@ -143,8 +184,8 @@
         ],
         "description": "Code snippet for a class definition"
     },
-    "namespce/class": {
-        "prefix": "class",
+    "namespce … class": {
+        "prefix": "nsc",
         "body": [
             "namespace ${1:namespacename};",
             "",

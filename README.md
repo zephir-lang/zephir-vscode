@@ -7,17 +7,24 @@
 
 [Zephir Language](https://zephir-lang.com) syntax highlighting and snippets for VSCode.
 
+---
+
+[Become a sponsor](https://opencollective.com/phalcon#sponsor) | [Become a backer](https://opencollective.com/phalcon#backer).
+
 ## Features <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
 
 * Highlighting
   - [x] Basic highlighting
   - [x] Advanced syntax highlighting for Zephir
-  - [x] [Regions Folding](https://code.visualstudio.com/docs/editor/codebasics#_folding)
-    by markers `//#region` and `// #endregion` or `//<editor-fold>` and `//</editor-fold>`
 
 * Editing
   - [x] Completion and snippets
   - [x] Smart Bracket Matching
+
+* Navigation
+  - [x] [Regions Folding](https://code.visualstudio.com/docs/editor/codebasics#_folding) by markers:
+    - `// #region` and `// #endregion`
+    - `// <editor-fold>` and `// </editor-fold>`
 
 ## Getting Started <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
 

@@ -27,7 +27,7 @@
         ["'", "'"]
     ],
     "indentationRules": {
-        "increaseIndentPattern": "({(?!.+}).*|\\(|\\[|(((else(\\s)?)?if|else|while|switch).*|(else|loop)|(case|default).*:|(\\bfor\\b(\\s+)*.*((\\s+)*,(\\s+)*.+)?(\\s+)*\\bin\\b).*))\\s*(/[/*].*)?$",
+        "increaseIndentPattern": "({(?!.+}).*|\\(|\\[|(((else(\\s)?)?if|else|while|switch).*[^;]|(else|loop)|(case|default).*:|(\\bfor\\b(\\s+)*.*((\\s+)*,(\\s+)*.+)?(\\s+)*\\bin\\b).*))\\s*(/[/*].*)?$",
         "decreaseIndentPattern": "^(.*\\*\\/)?\\s*((\\})|(\\)+[;,])|(\\][;,]))"
     },
     "folding": {

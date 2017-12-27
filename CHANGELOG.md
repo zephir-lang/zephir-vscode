@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Introduced smart indent rules based on controll flow and language statements
 - Amended code snippets
 
+### Fixed
+- Improved matching for curly braces
+
 ## [1.3.3] - 2017-12-27
 
 ### Cahnged

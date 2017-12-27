@@ -100,13 +100,13 @@
 					}
 				},
 				{
-					"begin": "{",
+					"begin": "\\{",
 					"beginCaptures": {
 						"0": {
 							"name": "punctuation.definition.namespace.begin.bracket.curly.zephir"
 						}
 					},
-					"end": "}",
+					"end": "\\}",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.namespace.end.bracket.curly.zephir"
@@ -142,13 +142,13 @@
 					"name": "storage.type.${1:/downcase}.zephir"
 				},
 				{
-					"begin": "{",
+					"begin": "\\{",
 					"beginCaptures": {
 						"0": {
 							"name": "punctuation.definition.use.begin.bracket.curly.zephir"
 						}
 					},
-					"end": "}",
+					"end": "\\}",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.use.end.bracket.curly.zephir"
@@ -230,7 +230,7 @@
 					"name": "entity.name.type.class.zephir"
 				}
 			},
-			"end": "}",
+			"end": "\\}",
 			"endCaptures": {
 				"0": {
 					"name": "punctuation.definition.class.end.bracket.curly.zephir"
@@ -323,7 +323,7 @@
 					]
 				},
 				{
-					"begin": "{",
+					"begin": "\\{",
 					"beginCaptures": {
 						"0": {
 							"name": "punctuation.definition.class.begin.bracket.curly.zephir"
@@ -372,7 +372,7 @@
 					"name": "keyword.control.exception.catch.zephir"
 				}
 			},
-			"end": "{",
+			"end": "\\{",
 			"endCaptures": {
 				"0": {
 					"name": "punctuation.definition.parameters.begin.bracket.curly.zephir"
@@ -656,13 +656,13 @@
 			"include": "#ternary_expression"
 		},
 		{
-			"begin": "{",
+			"begin": "\\{",
 			"beginCaptures": {
 				"0": {
 					"name": "punctuation.definition.begin.bracket.curly.zephir"
 				}
 			},
-			"end": "}",
+			"end": "\\}",
 			"endCaptures": {
 				"0": {
 					"name": "punctuation.definition.end.bracket.curly.zephir"
@@ -1596,7 +1596,7 @@
 							"name": "punctuation.definition.variable.zephir"
 						}
 					},
-					"end": "}",
+					"end": "\\}",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.variable.zephir"
@@ -1973,13 +1973,13 @@
 							]
 						},
 						{
-							"begin": "{",
+							"begin": "\\{",
 							"beginCaptures": {
 								"0": {
 									"name": "punctuation.definition.section.switch-block.begin.bracket.curly.zephir"
 								}
 							},
-							"end": "(?=})",
+							"end": "(?=\\})",
 							"patterns": [
 								{
 									"include": "$self"

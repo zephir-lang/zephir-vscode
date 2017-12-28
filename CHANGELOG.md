@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.5.0] - 2017-12-28
+
+### Added
+- Added support for `istring` type highlighting
+- Added support for `fn` (`function` alias) highlighting
+
+### Fixed
+- Fixed highlighting for function begins with `$` (e.g. `$fetch`)
+- Fixed highlighting for begins with `$` (e.g. `$Resource`)
+
 ## [1.4.1] - 2017-12-28
 
 ### Changed
@@ -60,7 +70,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Initial stable release
 
-[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.1...HEAD
+[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.2...v1.3.3

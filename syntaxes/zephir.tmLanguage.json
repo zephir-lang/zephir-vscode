@@ -7,7 +7,7 @@
 	],
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
-	"version": "1.4.1",
+	"version": "1.5.0",
 	"fileTypes": [
         "zep"
     ],
@@ -218,7 +218,7 @@
 			]
 		},
 		{
-			"begin": "(?i)^\\s*(?:(abstract|final)\\s+)?(class)\\s+([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
+			"begin": "(?i)^\\s*(?:(abstract|final)\\s+)?(class)\\s+\\$?([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.modifier.${1:/downcase}.zephir"
@@ -343,7 +343,7 @@
 			"include": "#switch_statement"
 		},
 		{
-			"match": "\\s*\\b(break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|fetch|reverse|likely|unlikely|if|return|match|switch|use|while|loop|yield)\\b",
+			"match": "\\s*(?<!\\$)\\b(break|case|continue|declare|default|die|let|var|do|else(if)?|exit|for|fetch|reverse|(?:un)?likely|if|return|match|switch|use|while|loop|yield)\\b",
 			"captures": {
 				"1": {
 					"name": "keyword.control.${1:/downcase}.zephir"
@@ -419,7 +419,7 @@
 			"include": "#function-definition"
 		},
 		{
-			"begin": "((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)(function)\\s+(?i:(__(?:call|construct|debugInfo|destruct|get|set|isset|unset|toString|clone|set_state|sleep|wakeup|autoload|invoke|callStatic))|([a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))\\s*(\\()",
+			"begin": "((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)(function|fn)\\s+\\$?(?i:([a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))\\s*(\\()",
 			"beginCaptures": {
 				"1": {
 					"patterns": [
@@ -433,12 +433,9 @@
 					"name": "storage.type.function.zephir"
 				},
 				"3": {
-					"name": "support.function.magic.zephir"
-				},
-				"4": {
 					"name": "entity.name.function.zephir"
 				},
-				"5": {
+				"4": {
 					"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
 				}
 			},
@@ -520,7 +517,7 @@
 			]
 		},
 		{
-			"match": "(?i)(\\()\\s*(array|real|double|float|int(?:eger)?|bool(?:ean)?|string|u?long|u?char|void|unsigned|null|object|binary|unset)\\s*(\\))",
+			"match": "(?i)(\\()\\s*(array|real|double|float|int(?:eger)?|bool(?:ean)?|i?string|u?long|u?char|void|unsigned|null|object|binary|unset)\\s*(\\))",
 			"captures": {
 				"1": {
 					"name": "punctuation.definition.storage-type.begin.bracket.round.zephir"
@@ -870,7 +867,7 @@
 			]
 		},
 		"function-definition": {
-			"begin": "(?i)\\b(function)\\s*(?=\\()",
+			"begin": "(?i)\\b(function|fn)\\s*(?=\\()",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.type.function.zephir"

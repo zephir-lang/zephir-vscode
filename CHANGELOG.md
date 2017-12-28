@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.4.1] - 2017-12-28
+
+### Changed
+- A large code cleanup regarding excessive or duplicate pattern matching
+
+### Fixed
+- Fixed support for builtin function call highlighting
+
 ## [1.4.0] - 2017-12-27
 
 ### Added
@@ -52,7 +60,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Initial stable release
 
-[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.1...HEAD
+[1.4.1]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/zephir-lang/zephir-vscode/compare/v1.3.1...v1.3.2

@@ -1,12 +1,14 @@
 {
     "name": "zephir",
-    "version": "1.4.0",
-    "displayName": "Zephir",
-    "title": "Zephir for VSCode",
+    "version": "1.4.1",
+    "displayName": "Zephir for VSCode",
     "description": "Zephir Language syntax highlighting and snippets for VSCode.",
     "author": "Zephir Team",
     "contributors": [
-        "Serghei Iakovlev  [@klay]"
+        {
+            "name" : "Serghei Iakovlev",
+            "email" : "serghei@phalconphp.com"
+        }
     ],
     "license": "SEE LICENSE IN LICENSE",
     "publisher": "zephir-lang",

@@ -1,4 +1,4 @@
-# Zephir syntax support for VSCode
+# Zephir for VSCode
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://vsmarketplacebadge.apphb.com/version-short/zephir-lang.zephir.svg)](https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir)
@@ -98,7 +98,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 
 ## License <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
 
-This project is open source software licensed under the MIT License.
+The "Zephir for VSCode" is open source software licensed under the MIT License.
 See the [LICENSE](https://github.com/zephir-lang/zephir-vscode/blob/master/LICENSE) file for more.
 
 ---

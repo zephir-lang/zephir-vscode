@@ -778,7 +778,7 @@
 							"name": "punctuation.definition.comment.zephir"
 						}
 					},
-					"name": "comment.block.documentation.zephirdoc.zephir",
+					"name": "comment.block.documentation.phpdoc.zephir",
 					"patterns": [
 						{
 							"include": "#zephir_doc"
@@ -1255,10 +1255,11 @@
 			]
 		},
 		"typeof": {
+			"name": "meta.other.typeof.zephir",
 			"begin": "(?i)\\b(typeof)\\s+(?=[\\\\$a-z_])",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.operator.type.zephir"
+					"name": "keyword.operator.expression.typeof.zephir"
 				}
 			},
 			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
@@ -1401,18 +1402,18 @@
 			"patterns": [
 				{
 					"match": "^(?!\\s*\\*).*?(?:(?=\\*\\/)|$\\n?)",
-					"name": "invalid.illegal.missing-asterisk.zephirdoc.zephir"
+					"name": "invalid.illegal.missing-asterisk.phpdoc.zephir"
 				},
 				{
 					"captures": {
 						"1": {
-							"name": "keyword.other.zephirdoc.zephir"
+							"name": "keyword.other.phpdoc.zephir"
 						},
 						"3": {
 							"name": "storage.modifier.zephir"
 						},
 						"4": {
-							"name": "invalid.illegal.wrong-access-type.zephirdoc.zephir"
+							"name": "invalid.illegal.wrong-access-type.phpdoc.zephir"
 						}
 					},
 					"match": "^\\s*\\*\\s*(@access)\\s+((public|private|protected)|(.+))\\s*$"
@@ -1420,7 +1421,7 @@
 				{
 					"captures": {
 						"1": {
-							"name": "keyword.other.zephirdoc.zephir"
+							"name": "keyword.other.phpdoc.zephir"
 						},
 						"2": {
 							"name": "markup.underline.link.zephir"
@@ -1432,11 +1433,11 @@
 					"begin": "(@(?:global|param|property(-(read|write))?|return|throws|var))\\s+(?=[A-Za-z_\\x{7f}-\\x{7fffffff}\\\\]|\\()",
 					"beginCaptures": {
 						"1": {
-							"name": "keyword.other.zephirdoc.zephir"
+							"name": "keyword.other.phpdoc.zephir"
 						}
 					},
 					"end": "(?=\\s|\\*/)",
-					"contentName": "meta.other.type.zephirdoc.zephir",
+					"contentName": "meta.other.type.phpdoc.zephir",
 					"patterns": [
 						{
 							"include": "#zephir_doc_types_array_multiple"
@@ -1451,16 +1452,16 @@
 				},
 				{
 					"match": "@(api|abstract|author|category|copyright|example|global|inherit[Dd]oc|internal|license|link|method|property(-(read|write))?|package|param|return|see|since|source|static|subpackage|throws|todo|fixme|var|version|uses|deprecated|final|ignore)\\b",
-					"name": "keyword.other.zephirdoc.zephir"
+					"name": "keyword.other.phpdoc.zephir"
 				},
 				{
 					"captures": {
 						"1": {
-							"name": "keyword.other.zephirdoc.zephir"
+							"name": "keyword.other.phpdoc.zephir"
 						}
 					},
 					"match": "{(@(link|inherit[Dd]oc)).+?}",
-					"name": "meta.tag.inline.zephirdoc.zephir"
+					"name": "meta.tag.inline.phpdoc.zephir"
 				}
 			]
 		},
@@ -1488,16 +1489,16 @@
 			"begin": "\\(",
 			"beginCaptures": {
 				"0": {
-					"name": "punctuation.definition.type.begin.bracket.round.zephirdoc.zephir"
+					"name": "punctuation.definition.type.begin.bracket.round.phpdoc.zephir"
 				}
 			},
 			"end": "(\\))(\\[\\])|(?=\\*/)",
 			"endCaptures": {
 				"1": {
-					"name": "punctuation.definition.type.end.bracket.round.zephirdoc.zephir"
+					"name": "punctuation.definition.type.end.bracket.round.phpdoc.zephir"
 				},
 				"2": {
-					"name": "keyword.other.array.zephirdoc.zephir"
+					"name": "keyword.other.array.phpdoc.zephir"
 				}
 			},
 			"patterns": [
@@ -1527,7 +1528,7 @@
 					]
 				},
 				"2": {
-					"name": "keyword.other.array.zephirdoc.zephir"
+					"name": "keyword.other.array.phpdoc.zephir"
 				}
 			}
 		},

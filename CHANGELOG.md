@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Improved constants recognition
+
+### Fixed
+- Removed reundant constants declaration
+
 ## [1.5.0] - 2017-12-28
 
 ### Added

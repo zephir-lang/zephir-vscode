@@ -611,7 +611,7 @@
 			"name": "keyword.operator.bitwise.zephir"
 		},
 		{
-			"include": "#typeof-statement"
+			"include": "#typeof-operator"
 		},
 		{
 			"include": "#instanceof"
@@ -1214,17 +1214,9 @@
 				}
 			]
 		},
-		"typeof-statement": {
-			"name": "meta.other.typeof.zephir",
-			"begin": "(?i)\\b(typeof)\\s+(?=[\\\\$a-z_])",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.operator.expression.typeof.zephir"
-				}
-			},
-			"end": "(?i)(?=[^\\\\$a-z0-9_\\x{7f}-\\x{7fffffff}])",
-			"patterns": [
-			]
+		"typeof-operator": {
+			"name": "keyword.operator.expression.typeof.zephir",
+			"match": "(?<!->|\\$)\\btypeof\\b(?!\\$|->)"
 		},
 		"typehinting": {
 			"begin": "<",

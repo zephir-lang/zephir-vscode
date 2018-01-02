@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Improved support of `typeof` operator
+
 ## [1.6.0] - 2018-01-02
 
 ### Added

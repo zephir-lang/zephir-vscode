@@ -533,7 +533,7 @@
 			"include": "#typehinting"
 		},
 		{
-			"match": "(?i)\\b(array|real|double|float|uint|int(eger)?|u?long|u?char|void|unsigned|null|bool(ean)?|string|class|var|function|interface|parent|self|object)\\b",
+			"match": "(?i)\\b(array|real|double|float|uint|int(eger)?|u?long|u?char|void|unsigned|null|bool(ean)?|string|class|var|function|interface|object)\\b",
 			"name": "storage.type.zephir"
 		},
 		{
@@ -1203,11 +1203,11 @@
 					"name": "keyword.other.new.zephir"
 				}
 			},
-			"end": "(?i)(?=[^a-z0-9_\\x{7f}-\\x{7fffffff}\\\\])",
+			"end": "(?i)(?=[^$a-z0-9_\\x{7f}-\\x{7fffffff}\\\\])",
 			"patterns": [
 				{
-					"match": "(?i)(parent|static|self)(?![a-z0-9_\\x{7f}-\\x{7fffffff}])",
-					"name": "storage.type.zephir"
+					"match": "(?<!->|\\$)\\b(parent|static|self)(?![a-z0-9_\\x{7f}-\\x{7fffffff}])",
+					"name": "variable.language.${1:/downcase}.zephir"
 				},
 				{
 					"include": "#class-name"
@@ -1621,13 +1621,13 @@
 		"scope-resolution": {
 			"patterns": [
 				{
-					"match": "(?i)([a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)(?=\\s*::)",
+					"match": "(?i)([$a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)(?=\\s*::|->)",
 					"captures": {
 						"1": {
 							"patterns": [
 								{
-									"match": "\\b(self|static|parent)\\b",
-									"name": "storage.type.zephir"
+									"match": "(?<!->|\\$)\\b(self|static|parent)\\b",
+									"name": "variable.language.${1:/downcase}.zephir"
 								},
 								{
 									"include": "#class-name"
@@ -1871,12 +1871,17 @@
 			]
 		},
 		"var_language": {
-			"match": "\\b(this)\\b",
-			"captures": {
-				"1": {
-					"name": "variable.language.this.php"
+			"patterns": [
+				{
+					"match": "(?<!->|\\$)\\b(this)\\b",
+					"captures": {
+						"1": {
+							"name": "variable.language.this.zephir"
+						}
+					}
 				}
-			}
+			]
+
 		},
 		"switch_statement": {
 			"patterns": [

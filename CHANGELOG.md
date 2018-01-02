@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Improved support of `typeof` operator
+- Improved support of `self`, `static` and `parent` highlighting
 
 ## [1.6.0] - 2018-01-02
 

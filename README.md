@@ -38,7 +38,7 @@ Although syntax highlighting should display well in most themes we recommend and
 * [Atom One Dark](https://marketplace.visualstudio.com/items?itemName=freebroccolo.theme-atom-one-dark)
 * Dark+ (default theme)
 * [Zephyr](https://marketplace.visualstudio.com/items?itemName=atrX.vscode-zephyr-theme)
-* [Flatland Monokai](https://marketplace.visualstudio.com/items?itemName=gerane.Theme-FlatlandMonokai)
+* Monokai (bundled with VSCode)
 * [Oceanic Next](https://marketplace.visualstudio.com/items?itemName=naumovs.theme-oceanicnext)
 
 ## Installation <sup>[↑](#zephir-syntax-support-for-vscode)</sup>

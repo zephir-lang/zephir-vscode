@@ -781,7 +781,7 @@
 					"name": "comment.block.documentation.phpdoc.zephir",
 					"patterns": [
 						{
-							"include": "#zephir_doc"
+							"include": "#docblock"
 						}
 					]
 				},
@@ -1362,7 +1362,7 @@
 				}
 			]
 		},
-		"zephir_doc": {
+		"docblock": {
 			"patterns": [
 				{
 					"match": "^(?!\\s*\\*).*?(?:(?=\\*\\/)|$\\n?)",

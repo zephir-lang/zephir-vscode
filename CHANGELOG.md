@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Improved constants recognition
 - Improved support of `this` highlighting
+- Improved highlighting for functions and classes begins with `$`
 
 ### Fixed
 - Removed reundant constants declaration
@@ -21,8 +22,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added support for `fn` (`function` alias) highlighting
 
 ### Fixed
-- Fixed highlighting for function begins with `$` (e.g. `$fetch`)
-- Fixed highlighting for begins with `$` (e.g. `$Resource`)
+- Fixed highlighting for functions begins with `$` (e.g. `$fetch`)
+- Fixed highlighting for classes begins with `$` (e.g. `$Resource`)
 
 ## [1.4.1] - 2017-12-28
 

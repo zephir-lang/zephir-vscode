@@ -218,7 +218,7 @@
 			]
 		},
 		{
-			"begin": "(?i)^\\s*(?:(abstract|final)\\s+)?(class)\\s+\\$?([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
+			"begin": "(?i)^\\s*(?:(abstract|final)\\s+)?(class)\\s+([$a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.modifier.${1:/downcase}.zephir"
@@ -419,7 +419,7 @@
 			"include": "#function-definition"
 		},
 		{
-			"begin": "((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)(function|fn)\\s+\\$?(?i:([a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))\\s*(\\()",
+			"begin": "((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)(function|fn)\\s+(?i:([$a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))\\s*(\\()",
 			"beginCaptures": {
 				"1": {
 					"patterns": [
@@ -1126,7 +1126,7 @@
 		"function-call": {
 			"patterns": [
 				{
-					"begin": "(?i)(\\\\?(?<![a-z0-9_\\x{7f}-\\x{7fffffff}])[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*(?:\\\\[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)+)\\s*(\\()",
+					"begin": "(?i)(\\\\?(?<![a-z0-9_\\x{7f}-\\x{7fffffff}])[a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*(?:\\\\[$a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)+)\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"patterns": [
@@ -1157,7 +1157,7 @@
 					]
 				},
 				{
-					"begin": "(?i)(\\\\)?(?<![a-z0-9_\\x{7f}-\\x{7fffffff}])([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
+					"begin": "(?i)(\\\\)?(?<![a-z0-9_\\x{7f}-\\x{7fffffff}])([$a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"patterns": [
@@ -1553,7 +1553,7 @@
 					]
 				},
 				{
-					"begin": "(?i)(->)([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
+					"begin": "(?i)(->)([$a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"name": "keyword.operator.class.zephir"
@@ -1637,7 +1637,7 @@
 					}
 				},
 				{
-					"begin": "(?i)(::)\\s*([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
+					"begin": "(?i)(::)\\s*([$a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"name": "keyword.operator.class.zephir"

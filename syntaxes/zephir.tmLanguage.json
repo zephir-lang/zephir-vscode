@@ -419,7 +419,7 @@
 			"include": "#function-definition"
 		},
 		{
-			"begin": "((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)(function|fn)\\s+(?i:([$a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))\\s*(\\()",
+			"begin": "((?:(?:final|abstract|public|private|protected|static|inline|internal|scoped|deprecated)\\s+)*)(function|fn)\\s+(?i:(__(?:construct|destruct|call|callStatic|get|set|isset|unset|sleep|wakeup|toString|invoke|set_state|clone|debugInfo|autoload))|([$a-zA-Z_\\x{7f}-\\x{7fffffff}][a-zA-Z0-9_\\x{7f}-\\x{7fffffff}]*))\\s*(\\()",
 			"beginCaptures": {
 				"1": {
 					"patterns": [
@@ -433,9 +433,12 @@
 					"name": "storage.type.function.zephir"
 				},
 				"3": {
-					"name": "entity.name.function.zephir"
+					"name": "support.function.magic.zephir"
 				},
 				"4": {
+					"name": "entity.name.function.zephir"
+				},
+				"5": {
 					"name": "punctuation.definition.parameters.begin.bracket.round.zephir"
 				}
 			},

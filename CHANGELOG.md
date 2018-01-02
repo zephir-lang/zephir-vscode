@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Removed reundant constants declaration
+- Return back [Magic Methods](http://php.net/manual/en/language.oop5.magic.php) recognition
 
 ## [1.5.0] - 2017-12-28
 

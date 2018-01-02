@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Improved support of `typeof` operator
 - Improved support of `self`, `static` and `parent` highlighting
+- Fully refactored highlighting of docblocks
 
 ## [1.6.0] - 2018-01-02
 

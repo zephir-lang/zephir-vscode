@@ -778,7 +778,7 @@
 							"name": "punctuation.definition.comment.zephir"
 						}
 					},
-					"name": "comment.block.documentation.phpdoc.zephir",
+					"name": "comment.block.documentation.phpdoc",
 					"patterns": [
 						{
 							"include": "#docblock"
@@ -1361,80 +1361,206 @@
 			"patterns": [
 				{
 					"match": "^(?!\\s*\\*).*?(?:(?=\\*\\/)|$\\n?)",
-					"name": "invalid.illegal.missing-asterisk.phpdoc.zephir"
+					"name": "invalid.illegal.missing-asterisk.phpdoc"
 				},
 				{
+					"match": "^\\s*\\*\\s*((@)(?:access|api))\\s+((public|private|protected)|(.+))\\b\\s*$",
 					"captures": {
 						"1": {
-							"name": "keyword.other.phpdoc.zephir"
-						},
-						"3": {
-							"name": "storage.modifier.zephir"
-						},
-						"4": {
-							"name": "invalid.illegal.wrong-access-type.phpdoc.zephir"
-						}
-					},
-					"match": "^\\s*\\*\\s*(@access)\\s+((public|private|protected)|(.+))\\s*$"
-				},
-				{
-					"captures": {
-						"1": {
-							"name": "keyword.other.phpdoc.zephir"
+							"name": "storage.type.class.phpdoc"
 						},
 						"2": {
-							"name": "markup.underline.link.zephir"
+							"name": "punctuation.definition.block.tag.phpdoc"
+						},
+						"4": {
+							"name": "constant.language.access-type.phpdoc"
+						},
+						"5": {
+							"name": "invalid.illegal.wrong-access-type.phpdoc"
 						}
-					},
-					"match": "(@xlink)\\s+(.+)\\s*$"
+					}
 				},
 				{
-					"begin": "(@(?:global|param|property(-(read|write))?|return|throws|var))\\s+(?=[A-Za-z_\\x{7f}-\\x{7fffffff}\\\\]|\\()",
+					"match": "^\\s*\\*\\s*((@)author)\\s+([^@\\s<>*/](?:[^@<>*/]|\\*[^/])*)(?:\\s*(<)([^>\\s]+)(>))?",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
+						},
+						"3": {
+							"name": "entity.name.type.instance.phpdoc"
+						},
+						"4": {
+							"name": "punctuation.definition.bracket.angle.begin.phpdoc"
+						},
+						"5": {
+							"name": "constant.other.email.link.underline.phpdoc"
+						},
+						"6": {
+							"name": "punctuation.definition.bracket.angle.end.phpdoc"
+						}
+					}
+				},
+				{
+					"name": "meta.example.phpdoc",
+					"begin": "\\s*\\*\\s*((<)(?:code|example)(>))",
 					"beginCaptures": {
 						"1": {
-							"name": "keyword.other.phpdoc.zephir"
+							"name": "entity.name.tag.inline.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.bracket.angle.begin.phpdoc"
+						},
+						"3": {
+							"name": "punctuation.definition.bracket.angle.end.phpdoc"
 						}
 					},
-					"end": "(?=\\s|\\*/)",
-					"contentName": "meta.other.type.phpdoc.zephir",
+					"end": "(</)(?:code|example)(>)|(?=\\*/)",
+					"endCaptures": {
+						"0": {
+							"name": "entity.name.tag.inline.phpdoc"
+						},
+						"1": {
+							"name": "punctuation.definition.bracket.angle.begin.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.bracket.angle.end.phpdoc"
+						}
+					},
 					"patterns": [
 						{
-							"include": "#zephir_doc_types_array_multiple"
+							"match": "^\\s\\*\\s+"
 						},
 						{
-							"include": "#zephir_doc_types_array_single"
-						},
-						{
-							"include": "#zephir_doc_types"
+							"match": "[^\\s*](?:[^*]|\\*[^/])*",
+							"captures": {
+								"0": {
+									"name": "source.embedded.zephir"
+								}
+							}
 						}
 					]
 				},
 				{
-					"match": "@(api|abstract|author|category|copyright|example|global|inherit[Dd]oc|internal|license|link|method|property(-(read|write))?|package|param|return|see|since|source|static|subpackage|throws|todo|fixme|var|version|uses|deprecated|final|ignore)\\b",
-					"name": "keyword.other.phpdoc.zephir"
-				},
-				{
+					"match": "((@)see)\\s+(?:((?=https?://)(?:[^\\s*]|\\*[^/])+)|((?!https?://|(?:\\[[^\\[\\]]*\\])?{@(?:link)\\b)(?:[^@\\s*/]|\\*[^/])+))",
 					"captures": {
 						"1": {
-							"name": "keyword.other.phpdoc.zephir"
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
+						},
+						"3": {
+							"name": "variable.other.link.underline.phpdoc"
+						},
+						"4": {
+							"name": "entity.name.type.instance.phpdoc"
+						}
+					}
+				},
+				{
+					"name": "meta.other.type.phpdoc",
+					"begin": "((@)(?:global|param|property(-(read|write))?|return|throws|var))\\s+(?=[A-Za-z_\\x{7f}-\\x{7fffffff}\\\\]|\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
 						}
 					},
-					"match": "{(@(link|inherit[Dd]oc)).+?}",
-					"name": "meta.tag.inline.phpdoc.zephir"
+					"end": "(?=((?<!\\|)\\s+(?!\\|))|\\*/)",
+					"patterns": [
+						{
+							"include": "#docblock-array-type-2"
+						},
+						{
+							"include": "#docblock-array-type-1"
+						},
+						{
+							"include": "#docblock-data-types"
+						}
+					]
+				},
+				{
+					"begin": "((@)(?:license|version))\\s+(([''\"]))",
+					"beginCaptures": {
+						"1": {
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
+						},
+						"3": {
+							"name": "variable.other.phpdoc"
+						},
+						"4": {
+							"name": "punctuation.definition.string.begin.phpdoc"
+						}
+					},
+					"end": "(\\3)|(?=$|\\*/)",
+					"endCaptures": {
+						"0": {
+							"name": "variable.other.phpdoc"
+						},
+						"1": {
+							"name": "punctuation.definition.string.end.phpdoc"
+						}
+					}
+				},
+				{
+					"match": "((@)link)\\s+(.+)",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
+						},
+						"3": {
+							"name": "variable.other.link.underline.phpdoc"
+						}
+					}
+				},
+				{
+					"name": "meta.tag.inline.phpdoc",
+					"match": "{((@)(link|inherit[Dd]oc)).+?}",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
+						}
+					}
+				},
+				{
+					"match": "((@)(access|api|author|see|link|license|version|global|param|property(-(read|write))?|return|throws|var|abstract|category|copyright|inherit[Dd]oc|internal|method|package|since|source|static|subpackage|todo|fixme|uses|deprecated|final|ignore))\\b",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.phpdoc"
+						},
+						"2": {
+							"name": "punctuation.definition.block.tag.phpdoc"
+						}
+					}
+
 				}
 			]
 		},
-		"zephir_doc_types": {
-			"match": "(?i)[a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*(\\|[a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)*",
+		"docblock-data-types": {
+			"match": "(?i)[$a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*(\\|[a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)*",
 			"captures": {
 				"0": {
 					"patterns": [
 						{
-							"match": "\\b(int(eger)?|uint|bool(ean)?|float|double|u?long|u?char|string|void|unsigned|null|mixed|array|self|static|callback|resource|object|false|true)\\b",
-							"name": "keyword.other.type.zephir"
+							"match": "\\b(int(eger)?|u?int|bool(ean)?|float|double|u?long|u?char|i?string|void|var|unsigned|null|mixed|array|self|static|this|callable|resource|object|false|true|\\.\\.\\.)\\b",
+							"name": "variable.other.phpdoc"
 						},
 						{
-							"include": "#class-name"
+							"include": "#docblock-instance-types"
 						},
 						{
 							"match": "\\|",
@@ -1444,31 +1570,85 @@
 				}
 			}
 		},
-		"zephir_doc_types_array_multiple": {
+		"docblock-instance-types": {
+			"patterns": [
+				{
+					"begin": "(?i)(?=\\\\?[$a-z_0-9]+\\\\)",
+					"end": "(?i)([a-z_][a-z_0-9]*)?(?![a-z0-9_\\\\])",
+					"endCaptures": {
+						"0": {
+							"name": "variable.other.link.underline.phpdoc"
+						},
+						"1": {
+							"name": "entity.name.type.instance.phpdoc"
+						}
+					},
+					"patterns": [
+						{
+							"match": "(?i)(([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?\\\\)",
+							"captures": {
+								"0": {
+									"name": "variable.other.link.underline.phpdoc"
+								},
+								"1": {
+									"name": "entity.name.type.instance.phpdoc"
+								}
+							}
+						}
+					]
+				},
+				{
+					"begin": "(?i)(?=[\\\\$a-z_])",
+					"end": "(?i)([a-z_][a-z_0-9]*)?(?![a-z0-9_\\\\])",
+					"endCaptures": {
+						"0": {
+							"name": "variable.other.link.underline.phpdoc"
+						},
+						"1": {
+							"name": "entity.name.type.instance.phpdoc"
+						}
+					},
+					"patterns": [
+						{
+							"match": "(?i)(([a-z_\\x{7f}-\\x{7fffffff}][a-z0-9_\\x{7f}-\\x{7fffffff}]*)?\\\\)",
+							"captures": {
+								"0": {
+									"name": "variable.other.link.underline.phpdoc"
+								},
+								"1": {
+									"name": "entity.name.type.instance.phpdoc"
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"docblock-array-type-2": {
 			"begin": "\\(",
 			"beginCaptures": {
 				"0": {
-					"name": "punctuation.definition.type.begin.bracket.round.phpdoc.zephir"
+					"name": "punctuation.definition.type.begin.bracket.round.phpdoc"
 				}
 			},
 			"end": "(\\))(\\[\\])|(?=\\*/)",
 			"endCaptures": {
 				"1": {
-					"name": "punctuation.definition.type.end.bracket.round.phpdoc.zephir"
+					"name": "punctuation.definition.type.end.bracket.round.phpdoc"
 				},
 				"2": {
-					"name": "keyword.other.array.phpdoc.zephir"
+					"name": "keyword.other.array.phpdoc"
 				}
 			},
 			"patterns": [
 				{
-					"include": "#zephir_doc_types_array_multiple"
+					"include": "#docblock-array-type-2"
 				},
 				{
-					"include": "#zephir_doc_types_array_single"
+					"include": "#docblock-array-type-1"
 				},
 				{
-					"include": "#zephir_doc_types"
+					"include": "#docblock-data-types"
 				},
 				{
 					"match": "\\|",
@@ -1476,18 +1656,18 @@
 				}
 			]
 		},
-		"zephir_doc_types_array_single": {
-			"match": "(?i)([a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)(\\[\\])",
+		"docblock-array-type-1": {
+			"match": "(?i)([$a-z_\\x{7f}-\\x{7fffffff}\\\\][a-z0-9_\\x{7f}-\\x{7fffffff}\\\\]*)(\\[\\])",
 			"captures": {
 				"1": {
 					"patterns": [
 						{
-							"include": "#zephir_doc_types"
+							"include": "#docblock-data-types"
 						}
 					]
 				},
 				"2": {
-					"name": "keyword.other.array.phpdoc.zephir"
+					"name": "keyword.other.array.phpdoc"
 				}
 			}
 		},

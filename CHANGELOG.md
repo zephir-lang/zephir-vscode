@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Added support of `for ..., ... in reverse` highlighting
+
 ### Changed
 - Improved constants recognition
 - Improved support of `this` highlighting

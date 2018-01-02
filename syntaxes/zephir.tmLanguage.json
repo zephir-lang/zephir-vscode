@@ -1870,10 +1870,9 @@
 		},
 		"var_language": {
 			"match": "\\b(this)\\b",
-			"name": "variable.language.this.php",
 			"captures": {
 				"1": {
-					"name": "storage.type.zephir"
+					"name": "variable.language.this.php"
 				}
 			}
 		},

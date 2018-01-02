@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Improved constants recognition
+- Improved support of `this` highlighting
 
 ### Fixed
 - Removed reundant constants declaration

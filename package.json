@@ -1,6 +1,6 @@
 {
     "name": "zephir",
-    "version": "1.6.1",
+    "version": "1.6.2",
     "displayName": "Zephir for VSCode",
     "description": "Zephir Language syntax highlighting and snippets for VSCode.",
     "author": "Zephir Team",

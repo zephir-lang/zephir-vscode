@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.6.2] - 2018-01-04
+
+### Fixed
+- Fixed highlighting for constants
+
 ## [1.6.1] - 2018-01-03
 
 ### Changed
@@ -91,7 +96,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Initial stable release
 
-[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.6.1...HEAD
+[Unreleased]: https://github.com/zephir-lang/zephir-vscode/compare/v1.6.2...HEAD
+[1.6.2]: https://github.com/zephir-lang/zephir-vscode/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/zephir-lang/zephir-vscode/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/zephir-lang/zephir-vscode/compare/v1.4.1...v1.5.0

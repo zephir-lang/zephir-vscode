@@ -459,6 +459,9 @@
 			]
 		},
 		{
+			"include": "#constants"
+		},
+		{
 			"include": "#scope-resolution"
 		},
 		{
@@ -708,9 +711,6 @@
 			]
 		},
 		{
-			"include": "#constants"
-		},
-		{
 			"include": "#punctuation-comma"
 		}
 	],
@@ -825,8 +825,23 @@
 					"name": "constant.language.zephir"
 				},
 				{
-					"match": "\\b[_A-Z][_A-Z0-9]*\\b",
-					"name": "variable.other.constant.zephir"
+					"match": "(?!\\|\\$|->)(?:::)?\\s*\\b([_A-Z][_A-Z0-9]*)\\b(?=\\s|;|$)",
+					"captures":{
+						"1": {
+							"name": "constant.language.zephir"
+						}
+					}
+				},
+				{
+					"match": "(?!\\|\\$|->)(const)\\s*\\b([_A-Z][_A-Z0-9]*)\\b(?=\\s|;|=|$)",
+					"captures":{
+						"1": {
+							"name": "storage.modifier.zephir"
+						},
+						"2": {
+							"name": "constant.language.zephir"
+						}
+					}
 				}
 			]
 		},

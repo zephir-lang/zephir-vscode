@@ -11,7 +11,7 @@
 
 [Become a sponsor](https://opencollective.com/phalcon#sponsor) | [Become a backer](https://opencollective.com/phalcon#backer).
 
-## Features <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## Features <sup>[↑](#zephir-for-vscode)</sup>
 
 * Highlighting
   - [x] Basic highlighting
@@ -27,11 +27,11 @@
     - `// #region` and `// #endregion`
     - `// <editor-fold>` and `// </editor-fold>`
 
-## Getting Started <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## Getting Started <sup>[↑](#zephir-for-vscode)</sup>
 
 You can install this extension through the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=zephir-lang.zephir).
 
-## Recommended Syntax Themes <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## Recommended Syntax Themes <sup>[↑](#zephir-for-vscode)</sup>
 
 Although syntax highlighting should display well in most themes we recommend and test with the following:
 
@@ -41,9 +41,9 @@ Although syntax highlighting should display well in most themes we recommend and
 * Monokai (bundled with VSCode)
 * [Oceanic Next](https://marketplace.visualstudio.com/items?itemName=naumovs.theme-oceanicnext)
 
-## Installation <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## Installation <sup>[↑](#zephir-for-vscode)</sup>
 
-### Using VSCode Command Pallete <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+### Using VSCode Command Pallete <sup>[↑](#zephir-for-vscode)</sup>
 
 Open the *Command Pallete*:
 
@@ -55,7 +55,7 @@ Then type "Install Extensions" and hit <kbd>Enter</kbd>. Finally find "Zephir fo
 
 Once the extension is installed, reload VSCode.
 
-### Packaged VSIX Extension <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+### Packaged VSIX Extension <sup>[↑](#zephir-for-vscode)</sup>
 
 [Download the latest .vsix release](https://github.com/zephir-lang/zephir-vscode/releases/latest) file from the GitHub repository
 and install it from the command line:
@@ -68,7 +68,7 @@ or from within VS Code by launching *Quick Open* and running the *Install from V
 
 Once the extension is installed, reload VSCode.
 
-### GitHub Repository Clone <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+### GitHub Repository Clone <sup>[↑](#zephir-for-vscode)</sup>
 
 Change to your `.vscode/extensions` [VSCode extensions directory](https://code.visualstudio.com/docs/extensions/install-extension#_side-loading).
 Depending on your platform it is located in the following folders:
@@ -85,18 +85,18 @@ git clone https://github.com/zephir-lang/zephir-vscode.git zephir-lang.zephir
 
 Once the extension is cloned, reload VSCode.
 
-## Contributing <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## Contributing <sup>[↑](#zephir-for-vscode)</sup>
 
 The source for this extension is available on [GitHub](https://github.com/zephir-lang/zephir-vscode). If anyone feels that there is
 something missing or would like to suggest improvements please [open a new issue](https://github.com/zephir-lang/zephir-vscode/issues)
 or send a pull request. Instructions for running/debugging extensions locally [here](https://code.visualstudio.com/docs/extensions/overview).
 
-## Discussion <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## Discussion <sup>[↑](#zephir-for-vscode)</sup>
 
 There is an `#editorsupport` channel on the Phalcon [Discord Server](https://discord.gg/PNFsSsr).
 If you would like to discuss an idea or need help or have other feedback you can usually find me (`@klay`) idling there.
 
-## License <sup>[↑](#zephir-syntax-support-for-vscode)</sup>
+## License <sup>[↑](#zephir-for-vscode)</sup>
 
 The "Zephir for VSCode" is open source software licensed under the MIT License.
 See the [LICENSE](https://github.com/zephir-lang/zephir-vscode/blob/master/LICENSE) file for more.

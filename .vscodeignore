@@ -1,7 +1,10 @@
-.gitattributes
+wip/**
+
+.github/**
+.vscode/**
+.vscode-test/**
+
 .gitignore
 .npmignore
-
-wip
-.vscode/**
-.github/**
+.gitattributes
+.editorconfig

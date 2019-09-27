@@ -4,7 +4,8 @@
 		"If you want to provide a fix or improvement, please create a pull request against https://github.com/zephir-lang/zephir-vscode repository.",
 		"There is an #editorsupport channel on the Phalcon Discord Server: https://discord.gg/PNFsSsr",
 		"If you would like to discuss an idea or need help or have other feedback you can usually find me (@klay) idling there."
-	],
+    ],
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Zephir",
 	"comment": "Zephir Language support for VSCode",
 	"version": "1.6.2",

@@ -103,7 +103,7 @@ See the [LICENSE](https://github.com/zephir-lang/zephir-vscode/blob/master/LICEN
 
 ---
 
-<p align="center">Copyright &copy; 2017-present Zephir Team</p>
+<p align="center">Copyright &copy; 2017-2019 Zephir Team</p>
 
 [linux-kbd]: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 [macos-kbd]: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf

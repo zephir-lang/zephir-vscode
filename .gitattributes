@@ -1,6 +1,8 @@
 # Default for those who don't have core.autocrlf set
 * text=auto
 
+.vscode/*.json    linguist-language=jsonc text eol=lf
+
 *.json            text eol=lf
 *.yml             text eol=lf
 *.md              text eol=lf

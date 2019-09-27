@@ -7,7 +7,7 @@
     "contributors": [
         {
             "name" : "Serghei Iakovlev",
-            "email" : "serghei@phalconphp.com"
+            "email" : "serghei@phalcon.io"
         }
     ],
     "license": "SEE LICENSE IN LICENSE",
@@ -22,7 +22,7 @@
         "vscode": "^1.19.0"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Snippets"
     ],
     "keywords": [
